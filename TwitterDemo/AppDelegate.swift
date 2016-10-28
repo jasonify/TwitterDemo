@@ -8,6 +8,8 @@
 
 import UIKit
 
+import BDBOAuth1Manager
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -41,6 +43,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        print("oauth", url.description)
+        
+        
+        let requestToken = BDBOAuth1Credential(queryString: url.query)
+        
+        let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com")! as URL!
+            , consumerKey: "xl5FOzSSIsS1k5DWSUwDi0iY2", consumerSecret: "9i4GUWdoHunftmEELd7hE0CEVbMKtSUPcJWq6193RYWFxY55hV")
+        
+        twitterClient?.deauthorize() // required or bugs..
+        twitterClient?.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken,  success: { (requestToken: BDBOAuth1Credential?) in
+            print("got token")
+           
+            let pathURL = "1.1/account/verify_credentials.json"
+            
+            twitterClient?.get(pathURL, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
+                print("account", response)
+                }, failure: { (task:URLSessionDataTask?, error:Error) in
+                    
+            })
+            
+            //  UIApplication.shared.openURL(url as! URL)
+            
+            }, failure: { (error: Error?) in
+                print("error: ", error?.localizedDescription )
+        })
+        return true
+    }
 
 }
 
