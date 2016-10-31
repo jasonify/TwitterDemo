@@ -37,6 +37,18 @@ class TweetTableViewCell: UITableViewCell {
             print("time=", tweet.prettyTimeStamp!)
             timestampLabel.text = tweet.prettyTimeStamp
         }
+        
+    }
+    
+    
+    
+
+    
+    func tappedMe(gesture: UITapGestureRecognizer)
+    {
+        
+   
+        print("TAPPED IMAGE!!")
     }
     
     @IBAction func onFavorite(_ sender: AnyObject) {
@@ -60,6 +72,11 @@ class TweetTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        var tap = UITapGestureRecognizer(target: self, action: #selector(TweetTableViewCell.tappedMe(gesture:)))
+        
+        profileImage.addGestureRecognizer(tap)
+        profileImage.isUserInteractionEnabled = true
+        
         // Initialization code
     }
 
