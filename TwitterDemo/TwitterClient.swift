@@ -51,8 +51,17 @@ class TwitterClient: BDBOAuth1SessionManager {
             //twitterClient?.homeTimeline()
             //  twitterClient?.tweet()
             
+            self.currentAccount(sucess: { (user: User) in
+                User.currentUser = user
+                self.loginSuccess?()
+
+                }, failure: { (error: Error) in
+                    
+                    self.loginFailure?(error)
+
+            })
             
-            self.loginSuccess?()
+            
             
             
             //  UIApplication.shared.openURL(url as! URL)
@@ -64,7 +73,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
     
-    func currentAccount(){
+    func currentAccount(sucess: @escaping (User) -> (), failure: @escaping (Error) -> ()  ){
         
         
         let pathURL = "1.1/account/verify_credentials.json"
@@ -74,11 +83,13 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             let userDictionary = response as! NSDictionary
             let user = User(userDictionary)
-            print("!!!!!!!!!!!!!!!!!!")
             print("name", user.name)
+            sucess(user)
+            
             
             }, failure: { (task:URLSessionDataTask?, error:Error) in
-                
+               
+                failure(error)
         })
     }
     

@@ -17,6 +17,7 @@ class User: NSObject {
     
     var dictionary: NSDictionary?
     init(_ dictionary: NSDictionary) {
+        self.dictionary = dictionary
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
         let profileUrlString = dictionary["profile_image_url_https"] as? String
@@ -52,7 +53,8 @@ class User: NSObject {
             let defaults = UserDefaults.standard
             
             if let user = user {
-                let data = try! JSONSerialization.data(withJSONObject: user.dictionary, options: [])
+                print("user dict", user.dictionary)
+                let data = try! JSONSerialization.data(withJSONObject: user.dictionary!, options: [])
                 defaults.set(data, forKey:  "currentUserData")
             } else {
                 defaults.set(nil, forKey:  "currentUserData")
