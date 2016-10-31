@@ -139,6 +139,17 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func retweet(tweet: Tweet){
+        let url = "/1.1/statuses/retweet/\(tweet.id!).json"
+        print("url retweet", url)
+        post(url, parameters: nil, progress: nil,
+             success: { (task:URLSessionDataTask, response:Any?) in
+                print("retweeteded !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                
+            }, failure: { (task:URLSessionDataTask?, error:Error) in
+                
+        })
+    }
     func homeTimeline( success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
         let timelineURL = "1.1/statuses/home_timeline.json"
         

@@ -29,12 +29,21 @@ class TweetTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func onFavorite(_ sender: AnyObject) {
+    }
+    @IBAction func onRetweet(_ sender: AnyObject) {
+        TwitterClient.sharedInstance?.retweet(tweet: tweet)
+    }
+    
+    
     @IBAction func onReply(_ sender: AnyObject) {
         print("REPLYING!")
         TwitterClient.sharedInstance?.replyTo(tweet:  tweet, replyText: "hello again !")
         
         
     }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
