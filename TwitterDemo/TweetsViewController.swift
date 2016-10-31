@@ -9,11 +9,20 @@
 import UIKit
 
 class TweetsViewController: UIViewController {
+  
+    @IBOutlet weak var tableView: UITableView!
 
+    var tweets = [Tweet]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
 
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets:[Tweet]) in
+            
+            self.tweets = tweets
+            self.tableView.reloadData()
             for tweet in tweets{
                 
                 print("tweets", tweet.text)
@@ -46,3 +55,28 @@ class TweetsViewController: UIViewController {
     */
 
 }
+
+extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
+    // implementation of protocol requirements goes here
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("count", tweets.count)
+        return tweets.count
+    }
+    
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetTableViewCell
+        cell.tweet = tweets[indexPath.row]
+        return cell
+        
+    }
+    
+    
+    
+    
+}
+
