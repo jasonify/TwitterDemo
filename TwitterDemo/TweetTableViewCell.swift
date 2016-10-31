@@ -9,15 +9,22 @@
 import UIKit
 import AFNetworking
 
+
+@objc protocol  TweetTableViewCellDelegate  {
+    @objc optional func replySelected(tweet: Tweet)
+}
+
+
 class TweetTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var timestampLabel: UILabel!
     
     @IBOutlet weak var tweetTextlabel: UILabel!
+    
+    weak var delegate: TweetTableViewCellDelegate?
     
     var tweet: Tweet! {
         didSet {
@@ -42,7 +49,9 @@ class TweetTableViewCell: UITableViewCell {
     
     @IBAction func onReply(_ sender: AnyObject) {
         print("REPLYING!")
-        TwitterClient.sharedInstance?.replyTo(tweet:  tweet, replyText: "hello again !")
+       
+        
+        delegate?.replySelected?(tweet: tweet!)
         
         
     }

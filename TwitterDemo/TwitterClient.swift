@@ -100,16 +100,22 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func tweet(){
-        let url = "/1.1/statuses/update.json?status=Maybe%20he%27ll%20finally%20find%20his%20keys"
-        
-        post(url, parameters: nil, progress: nil,
-             success: { (task:URLSessionDataTask, response:Any?) in
-               print("TWEETEEDDDD!!")
-                
-            }, failure: { (task:URLSessionDataTask?, error:Error) in
-                
-        })
+    func tweet(text: String){
+        let textQuery = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        if let textQuery = textQuery {
+            let url = "/1.1/statuses/update.json?status=\(textQuery)"
+            
+            post(url, parameters: nil, progress: nil,
+                 success: { (task:URLSessionDataTask, response:Any?) in
+                    print("TWEETEEDDDD!!")
+                    
+                }, failure: { (task:URLSessionDataTask?, error:Error) in
+                    
+            })
+        } else {
+            // failure:
+            
+        }
     }
     
     func replyTo(tweet:Tweet, replyText: String){

@@ -86,6 +86,15 @@ class TweetsViewController: UIViewController {
  
             tweetDetailsVieController.tweet  = selectedTweet
         }
+        if segue.identifier == "showReplyTweet"{
+        
+        
+            let navigationController = segue.destination as! UINavigationController
+            let tweetDetailsVieController = navigationController.topViewController as! ComposeTweetViewController
+            tweetDetailsVieController.tweet  = selectedTweet
+            
+        }
+        
        
         
         
@@ -93,6 +102,18 @@ class TweetsViewController: UIViewController {
     }
     
 
+}
+
+extension TweetsViewController: TweetTableViewCellDelegate {
+    func replySelected(tweet: Tweet) {
+        
+        print("ABOUT TO REPLY")
+        selectedTweet = tweet
+        
+        performSegue(withIdentifier: "showReplyTweet", sender: self)
+        
+      //
+    }
 }
 
 extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -121,6 +142,7 @@ extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetTableViewCell
         cell.tweet = tweets[indexPath.row]
+        cell.delegate = self
         return cell
         
     }
