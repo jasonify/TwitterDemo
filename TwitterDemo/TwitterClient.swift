@@ -110,9 +110,35 @@ class TwitterClient: BDBOAuth1SessionManager {
             }, failure: { (task:URLSessionDataTask?, error:Error) in
                 
         })
-        
-             
     }
+    
+    func replyTo(tweet:Tweet, replyText: String){
+        let replyBaseUrl = "/1.1/statuses/update.json?status="
+        
+        let replyIdPart = "&in_reply_to_status_id=\(tweet.id!)"
+        let username = tweet.user!.screenName!
+        let status = ". @\(username) \(replyText)"
+        let replyUrlString = "\(status)\(replyIdPart)"
+        
+        let replyQuery = replyUrlString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        
+        if let replyQuery = replyQuery {
+            
+            let replyUrl = "\(replyBaseUrl)\(replyQuery)"
+            print("replyUrl", replyUrl)
+            
+
+            post(replyUrl, parameters: nil, progress: nil,
+                 success: { (task:URLSessionDataTask, response:Any?) in
+                    print("REPLIED TWEETEEDDDD!!")
+                    
+                }, failure: { (task:URLSessionDataTask?, error:Error) in
+                    
+            })
+            
+        }
+    }
+    
     func homeTimeline( success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
         let timelineURL = "1.1/statuses/home_timeline.json"
         

@@ -23,11 +23,17 @@ class TweetTableViewCell: UITableViewCell {
             print("Setting tweet")
             
             tweetTextlabel.text = tweet.text
-          //  profileImage.setImageWith(URL()
             if tweet.user?.profileImageUrl != nil {
             profileImage.setImageWith(tweet.user!.profileImageUrl!)
             }
         }
+    }
+    
+    @IBAction func onReply(_ sender: AnyObject) {
+        print("REPLYING!")
+        TwitterClient.sharedInstance?.replyTo(tweet:  tweet, replyText: "hello again !")
+        
+        
     }
     
     override func awakeFromNib() {

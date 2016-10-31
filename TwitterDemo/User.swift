@@ -17,6 +17,7 @@ class User: NSObject {
     
     var profileImageUrl: URL?
 
+    var screenName: String?
     
     var dictionary: NSDictionary?
     
@@ -29,6 +30,9 @@ class User: NSObject {
             profileUrl = URL(string: profileUrlString)
         }
         
+        
+        screenName = dictionary["screen_name"] as? String
+
         
         let profileImageUrlString = dictionary["profile_image_url_https"] as? String
         print(profileImageUrlString)
