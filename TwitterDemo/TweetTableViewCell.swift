@@ -30,6 +30,7 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     @IBAction func onFavorite(_ sender: AnyObject) {
+        TwitterClient.sharedInstance?.favorite(tweet: tweet)
     }
     @IBAction func onRetweet(_ sender: AnyObject) {
         TwitterClient.sharedInstance?.retweet(tweet: tweet)

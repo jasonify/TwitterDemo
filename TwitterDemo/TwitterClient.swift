@@ -139,6 +139,17 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func favorite(tweet: Tweet){
+        let url = "/1.1/favorites/create.json?id=\(tweet.id!)"
+        post(url, parameters: nil, progress: nil,
+             success: { (task:URLSessionDataTask, response:Any?) in
+                print("faved!")
+                
+            }, failure: { (task:URLSessionDataTask?, error:Error) in
+                
+        })
+        
+    }
     func retweet(tweet: Tweet){
         let url = "/1.1/statuses/retweet/\(tweet.id!).json"
         print("url retweet", url)
