@@ -15,7 +15,11 @@ class User: NSObject {
     var profileUrl: URL?
     var tagline: String?
     
+    
+
+    
     var dictionary: NSDictionary?
+    
     init(_ dictionary: NSDictionary) {
         self.dictionary = dictionary
         name = dictionary["name"] as? String
@@ -29,7 +33,8 @@ class User: NSObject {
     }
     
     static var _currentUser: User?
-    
+    static let userDidLogoutNotification = Notification.Name("UserDidLogout")
+
     class var currentUser: User?{
         get {
             if _currentUser == nil {

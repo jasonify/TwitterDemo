@@ -73,6 +73,13 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
     
+    func logout(){
+        User.currentUser = nil
+        deauthorize()
+    
+        NotificationCenter.default.post(name: User.userDidLogoutNotification , object: nil)
+    }
+    
     func currentAccount(sucess: @escaping (User) -> (), failure: @escaping (Error) -> ()  ){
         
         

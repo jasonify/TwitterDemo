@@ -22,11 +22,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if User.currentUser != nil {
             print("There is a currente user")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+            
+            window?.rootViewController = vc
             
         } else {
             print ("There is no current user")
         }
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.logoutActivated), name: User.userDidLogoutNotification, object: nil)
+
+        
         return true
+    }
+    func logoutActivated(){
+        print("Logout!????")
+        let storyboard = UIStoryboard(name: "Main", bundle:  nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainLoginView")
+        self.window?.rootViewController = vc
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
