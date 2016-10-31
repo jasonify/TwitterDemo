@@ -80,14 +80,10 @@ class TweetsViewController: UIViewController {
        
         if(segue.identifier == "showTweetDetails") {
 
-            /*
             let navigationController = segue.destination as! UINavigationController
             
             let tweetDetailsVieController = navigationController.topViewController as! TweetDetailViewController
-            */
-            
-            var tweetDetailsVieController = segue.destination as! TweetDetailViewController
-            
+ 
             tweetDetailsVieController.tweet  = selectedTweet
         }
        

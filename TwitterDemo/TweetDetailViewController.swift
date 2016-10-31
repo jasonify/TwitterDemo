@@ -12,14 +12,7 @@ class TweetDetailViewController: UIViewController {
 
     @IBOutlet weak var tweetTextlabel: UILabel!
    
-    var tweet: Tweet! {
-        didSet {
-            print("tweet", tweet?.text)
-           // tweetTextlabel.text = tweet?.text
-        }
-    }
-    
-    
+    var tweet: Tweet?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +29,9 @@ class TweetDetailViewController: UIViewController {
     }
     
 
+    @IBAction func onCancel(_ sender: AnyObject) {
+         dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
