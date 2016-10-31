@@ -112,11 +112,19 @@
                                                         <action selector="onFavorite:" destination="sfY-Pe-f4U" eventType="touchUpInside" id="Bj1-B9-Jpd"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nef-wU-AVS">
+                                                    <frame key="frameInset" minX="27" minY="134" width="123" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="YEG-b5-0LN" id="Lho-hp-DFJ"/>
                                             <outlet property="profileImage" destination="4e8-8F-gix" id="4Wt-wh-Zff"/>
+                                            <outlet property="timestampLabel" destination="nef-wU-AVS" id="Us3-Nk-Iuj"/>
                                             <outlet property="tweetTextlabel" destination="1GG-dI-qkH" id="n6Q-lY-2ti"/>
                                             <outlet property="usernameLabel" destination="Jf7-hd-eO6" id="IWD-Hp-LHw"/>
                                         </connections>

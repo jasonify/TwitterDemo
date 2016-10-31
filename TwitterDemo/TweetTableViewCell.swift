@@ -15,6 +15,7 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var timestampLabel: UILabel!
     
     @IBOutlet weak var tweetTextlabel: UILabel!
     
@@ -26,6 +27,8 @@ class TweetTableViewCell: UITableViewCell {
             if tweet.user?.profileImageUrl != nil {
             profileImage.setImageWith(tweet.user!.profileImageUrl!)
             }
+            print("time=", tweet.prettyTimeStamp!)
+            timestampLabel.text = tweet.prettyTimeStamp
         }
     }
     

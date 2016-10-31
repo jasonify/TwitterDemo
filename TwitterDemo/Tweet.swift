@@ -16,6 +16,7 @@ class Tweet: NSObject {
     var favoritesCount: Int = 0
     var user: User?
     var id: String?
+    var prettyTimeStamp: String?
     
     init(dictionary: NSDictionary) {
         text = dictionary["text"] as? String
@@ -34,6 +35,10 @@ class Tweet: NSObject {
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE MM d HH:mm:ss Z y"
             timestamp = formatter.date(from: timestampString)
+            print(timestamp)
+            prettyTimeStamp  = timestamp!.timeAgo
+            print("prettyTimestamp", prettyTimeStamp)
+            
         }
     }
 
