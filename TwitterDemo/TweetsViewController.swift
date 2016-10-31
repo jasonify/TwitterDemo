@@ -15,6 +15,8 @@ class TweetsViewController: UIViewController {
     var tweets = [Tweet]()
     let refreshControl = UIRefreshControl()
 
+    var selectedTweet: Tweet?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +36,6 @@ class TweetsViewController: UIViewController {
     }
 
     func refreshControlAction(refreshControl: UIRefreshControl) {
-
-      
         self.refresh()
     }
 
@@ -69,23 +69,52 @@ class TweetsViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+       
+        if(segue.identifier == "showTweetDetails") {
+
+            /*
+            let navigationController = segue.destination as! UINavigationController
+            
+            let tweetDetailsVieController = navigationController.topViewController as! TweetDetailViewController
+            */
+            
+            var tweetDetailsVieController = segue.destination as! TweetDetailViewController
+            
+            tweetDetailsVieController.tweet  = selectedTweet
+        }
+       
+        
+        
+        
     }
-    */
+    
 
 }
 
 extension TweetsViewController: UITableViewDelegate, UITableViewDataSource {
     // implementation of protocol requirements goes here
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(tweets.count > indexPath.row){
+            print("selected: ", tweets[indexPath.row].text )
+            selectedTweet = tweets[indexPath.row]
+            
+            self.performSegue(withIdentifier: "showTweetDetails", sender: self)
+         
+            
+        }
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("count", tweets.count)
+        
         return tweets.count
     }
     
