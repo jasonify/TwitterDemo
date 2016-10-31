@@ -78,6 +78,7 @@ class TweetsViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
        
+        
         if(segue.identifier == "showTweetDetails") {
 
             let navigationController = segue.destination as! UINavigationController
@@ -90,8 +91,8 @@ class TweetsViewController: UIViewController {
         
         
             let navigationController = segue.destination as! UINavigationController
-            let tweetDetailsVieController = navigationController.topViewController as! ComposeTweetViewController
-            tweetDetailsVieController.tweet  = selectedTweet
+            let composeView = navigationController.topViewController as! ComposeTweetViewController
+            composeView.tweet  = selectedTweet
             
         }
         

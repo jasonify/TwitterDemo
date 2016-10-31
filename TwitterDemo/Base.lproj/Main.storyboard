@@ -148,13 +148,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="clD-pZ-wec">
                             <connections>
-                                <segue destination="Way-0X-vSH" kind="presentation" identifier="showReplyTweet" id="pbs-Ox-4pP"/>
+                                <segue destination="Way-0X-vSH" kind="presentation" identifier="" id="pbs-Ox-4pP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ybA-Et-lVu" id="r6y-qz-Bis"/>
                         <segue destination="SNd-El-7e2" kind="presentation" identifier="showTweetDetails" id="esn-uO-G5E"/>
+                        <segue destination="Way-0X-vSH" kind="presentation" identifier="showReplyTweet" id="mbg-zM-tRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Eq-EH-OTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,7 +248,11 @@
                                 <action selector="onCancel:" destination="inF-ny-4UM" id="ZDE-Oh-Gbe"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Reply" id="bl2-bN-3op"/>
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="bl2-bN-3op">
+                            <connections>
+                                <action selector="onReplyPressed:" destination="inF-ny-4UM" id="asQ-7S-3Vq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tweetTextlabel" destination="b1u-YG-Ump" id="h0U-HE-ntD"/>
@@ -256,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNm-OL-Mi2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3737" y="41"/>
+            <point key="canvasLocation" x="3786" y="46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GTn-8M-zV1">
