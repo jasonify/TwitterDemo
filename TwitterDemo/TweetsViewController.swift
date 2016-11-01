@@ -44,6 +44,18 @@ class TweetsViewController: UIViewController {
         tableView.insertSubview(refreshControl, at: 0)
         
         // Do any additional setup after loading the view.
+        
+        // Set up Infinite Scroll loading indicator
+        let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset;
+        insets.bottom += InfiniteScrollActivityView.defaultHeight;
+        tableView.contentInset = insets
+        
+        
     }
 
     func refreshControlAction(refreshControl: UIRefreshControl) {
@@ -113,12 +125,20 @@ class TweetsViewController: UIViewController {
         }
 
     }
+    
+    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
     var isMoreDataLoading = false
+    var loadingMoreView:InfiniteScrollActivityView?
+
 
 }
 extension TweetsViewController: UIScrollViewDelegate {
 
     
+  
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
             // Calculate the position of one screen length before the bottom of the results
@@ -128,24 +148,39 @@ extension TweetsViewController: UIScrollViewDelegate {
             // When the user has scrolled past the threshold, start requesting
             if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging) {
                 isMoreDataLoading = true
+                self.loadingMoreView!.isHidden = false
+
+                // Update position of loadingMoreView, and start loading indicator
+                
+//                let frame = CGRect(origin: CGPoint(x: 0,y :tableView.contentSize.height), size: CGSize(width:  tableView.bounds.size.widt, height: 100))
+
+                let frame = self.CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+
+                
                 
                 // ... Code to load more results ...
                 
                 TwitterClient.sharedInstance?.homeTimelineOlder(tweets, success: { (tweets:[Tweet]) in
                     
                     self.isMoreDataLoading = false
+                    self.loadingMoreView!.isHidden = true
+
 
                     self.tweets = tweets
                     self.tableView.reloadData()
-                    for tweet in tweets{
-                        
-                        print("tweets", tweet.text)
-                        self.refreshControl.endRefreshing()
-                        
-                    }
+            
+                    self.refreshControl.endRefreshing()
+
+                    self.loadingMoreView!.stopAnimating()
+
+                    
                     }, failure: { (error:Error) in
                         self.refreshControl.endRefreshing()
                         self.isMoreDataLoading = false
+                        self.loadingMoreView!.stopAnimating()
+                        self.loadingMoreView!.isHidden = true
 
                         print(error.localizedDescription)
                 })
