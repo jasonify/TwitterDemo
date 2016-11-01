@@ -10,16 +10,34 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
-    @IBOutlet weak var tweetTextlabel: UILabel!
-   
-    var tweet: Tweet?
+    @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var retweetImage: UIImageView!
+    @IBOutlet weak var replyImage: UIImageView!
     
+    @IBOutlet weak var tweetTextlabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profilePicture: UIImageView!
+    var tweet: Tweet?
+    @IBOutlet weak var favoriteCountLabel: UILabel!
+    
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
  
         print("tweet", tweet?.text)
-        tweetTextlabel.text = tweet?.text
+        
+        if let tweet = tweet {
+            nameLabel.text = tweet.user?.name
+            usernameLabel.text = tweet.user?.screenName
+            profilePicture.setImageWith((tweet.user?.profileImageUrl)!)
+            
+            retweetCountLabel.text = "\(tweet.retweetCount)"
+            favoriteCountLabel.text = "\(tweet.favoritesCount)"
+            tweetTextlabel.text = tweet.text
+        }
         // Do any additional setup after loading the view.
     }
 
