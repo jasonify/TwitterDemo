@@ -36,18 +36,16 @@ class TweetTableViewCell: UITableViewCell {
             }
             print("time=", tweet.prettyTimeStamp!)
             timestampLabel.text = tweet.prettyTimeStamp
+            nameLabel.text = tweet.user?.name
+            usernameLabel.text = tweet.user?.screenName
+            
         }
         
     }
     
     
-    
-
-    
     func tappedMe(gesture: UITapGestureRecognizer)
     {
-        
-   
         print("TAPPED IMAGE!!")
     }
     
