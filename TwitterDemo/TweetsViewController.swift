@@ -22,7 +22,8 @@ class TweetsViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         self.refresh()
 
