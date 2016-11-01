@@ -15,6 +15,8 @@ class ComposeTweetViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     var tweet: Tweet?
+    var user: User?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,12 @@ class ComposeTweetViewController: UIViewController {
             nameLabel.text =  tweet.user!.name
             usernameLabel.text = tweet.user!.screenName
             profileImage.setImageWith(tweet.user!.profileImageUrl!)
+        }
+        
+        if let user = user{
+            nameLabel.text =  user.name
+            usernameLabel.text = user.screenName
+            profileImage.setImageWith(user.profileImageUrl!)
         }
         // Do any additional setup after loading the view.
     }

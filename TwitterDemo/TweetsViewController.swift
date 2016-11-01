@@ -12,10 +12,20 @@ class TweetsViewController: UIViewController {
   
     @IBOutlet weak var tableView: UITableView!
 
+    @IBAction func composePressed(_ sender: AnyObject) {
+        
+        
+        performSegue(withIdentifier: "showCompose", sender: self)
+
+    
+    }
+    
+    
     var tweets = [Tweet]()
     let refreshControl = UIRefreshControl()
 
     var selectedTweet: Tweet?
+    var selectedUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +106,16 @@ class TweetsViewController: UIViewController {
             composeView.tweet  = selectedTweet
             
         }
+        
+        if segue.identifier == "showCompose"{
+            
+            
+            let navigationController = segue.destination as! UINavigationController
+            let composeView = navigationController.topViewController as! ComposeTweetViewController
+            composeView.user  = User.currentUser
+            
+        }
+        
         
        
         

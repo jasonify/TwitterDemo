@@ -173,7 +173,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="clD-pZ-wec">
                             <connections>
-                                <segue destination="Way-0X-vSH" kind="presentation" identifier="" id="pbs-Ox-4pP"/>
+                                <action selector="composePressed:" destination="1G8-kh-ume" id="eQE-37-Ig8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -181,11 +181,12 @@
                         <outlet property="tableView" destination="ybA-Et-lVu" id="r6y-qz-Bis"/>
                         <segue destination="SNd-El-7e2" kind="presentation" identifier="showTweetDetails" id="esn-uO-G5E"/>
                         <segue destination="Way-0X-vSH" kind="presentation" identifier="showReplyTweet" id="mbg-zM-tRB"/>
+                        <segue destination="Way-0X-vSH" kind="presentation" identifier="showCompose" id="Ry6-OE-2QW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Eq-EH-OTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1872.8" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1796" y="36"/>
         </scene>
         <!--Compose Tweet View Controller-->
         <scene sceneID="Z68-l8-F96">
@@ -502,7 +503,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5g-Ht-Y6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2589.5999999999999" y="-609.44527736131943"/>
+            <point key="canvasLocation" x="2588" y="-680"/>
         </scene>
     </scenes>
     <resources>
@@ -511,6 +512,6 @@
         <image name="reply" width="13" height="9"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pbs-Ox-4pP"/>
+        <segue reference="Ry6-OE-2QW"/>
     </inferredMetricsTieBreakers>
 </document>
