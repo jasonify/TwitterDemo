@@ -11,18 +11,23 @@ import AFNetworking
 
 class ComposeTweetViewController: UIViewController {
 
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     var tweet: Tweet?
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if tweet != nil {
+        if let tweet = tweet {
             tweetButton.title = "Reply"
+            nameLabel.text =  tweet.user!.name
+            usernameLabel.text = tweet.user!.screenName
+            profileImage.setImageWith(tweet.user!.profileImageUrl!)
         }
         // Do any additional setup after loading the view.
     }
 
     @IBOutlet weak var tweetButton: UIBarButtonItem!
-    @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var tweettextField: UITextView!
     

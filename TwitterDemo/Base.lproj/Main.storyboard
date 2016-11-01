@@ -199,22 +199,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvt-Bb-JoY">
-                                <frame key="frameInset" minX="46" minY="118" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@jasonify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvt-Bb-JoY">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TU6-G7-Yrs">
-                                <frame key="frameInset" minX="33" minY="249" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TU6-G7-Yrs">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xvl-Mc-k2l">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="inJ-YF-6HK"/>
+                                    <constraint firstAttribute="width" constant="45" id="sPh-1u-p5x"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jason Bautista" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcv-qM-CFD">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TU6-G7-Yrs" firstAttribute="top" secondItem="xvl-Mc-k2l" secondAttribute="bottom" constant="30" id="0wx-42-Uc0"/>
+                            <constraint firstItem="lcv-qM-CFD" firstAttribute="leading" secondItem="xvl-Mc-k2l" secondAttribute="trailing" constant="10" id="Bvw-uq-ThU"/>
+                            <constraint firstItem="1r8-6s-MMS" firstAttribute="top" secondItem="TU6-G7-Yrs" secondAttribute="bottom" id="Gbs-iS-Lf1"/>
+                            <constraint firstItem="TU6-G7-Yrs" firstAttribute="leading" secondItem="Oox-g1-wJ9" secondAttribute="leadingMargin" constant="6" id="LB6-6r-jx5"/>
+                            <constraint firstAttribute="trailing" secondItem="lcv-qM-CFD" secondAttribute="trailing" constant="10" id="YG9-5m-kXk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TU6-G7-Yrs" secondAttribute="trailing" id="add-Oj-AfR"/>
+                            <constraint firstAttribute="trailing" secondItem="Yvt-Bb-JoY" secondAttribute="trailing" constant="10" id="fBU-0H-sqs"/>
+                            <constraint firstItem="xvl-Mc-k2l" firstAttribute="top" secondItem="APM-U8-6qW" secondAttribute="bottom" constant="23" id="fah-bo-hh6"/>
+                            <constraint firstItem="lcv-qM-CFD" firstAttribute="top" secondItem="APM-U8-6qW" secondAttribute="bottom" constant="23" id="ja4-Wo-MhL"/>
+                            <constraint firstItem="Yvt-Bb-JoY" firstAttribute="top" secondItem="lcv-qM-CFD" secondAttribute="bottom" constant="5" id="kNs-4r-Km0"/>
+                            <constraint firstItem="Yvt-Bb-JoY" firstAttribute="leading" secondItem="xvl-Mc-k2l" secondAttribute="trailing" constant="10" id="vwf-hh-nPo"/>
+                            <constraint firstItem="xvl-Mc-k2l" firstAttribute="leading" secondItem="Oox-g1-wJ9" secondAttribute="leading" constant="7" id="yoB-I5-Yz4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="doS-Rp-rkv">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="7F3-fR-dEF">
@@ -229,14 +250,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameLabel" destination="lcv-qM-CFD" id="fJk-TR-zrw"/>
+                        <outlet property="profileImage" destination="xvl-Mc-k2l" id="VUV-lX-d4o"/>
                         <outlet property="tweetButton" destination="TcN-Fy-GLl" id="mNN-1M-w2S"/>
                         <outlet property="tweettextField" destination="TU6-G7-Yrs" id="TlL-Rf-gTh"/>
-                        <outlet property="usernameLabel" destination="Yvt-Bb-JoY" id="e6j-6t-Tyx"/>
+                        <outlet property="usernameLabel" destination="Yvt-Bb-JoY" id="zyX-Af-E6a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ge7-Hh-z1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3609" y="-714"/>
+            <point key="canvasLocation" x="3607.5" y="-714.08450704225356"/>
         </scene>
         <!--Tweet-->
         <scene sceneID="72A-WQ-iPd">
