@@ -22,6 +22,10 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var timestampLabel: UILabel!
     
+    @IBOutlet weak var retweetImage: UIImageView!
+    
+    @IBOutlet weak var favoriteImage: UIImageView!
+    @IBOutlet weak var replyImage: UIImageView!
     @IBOutlet weak var tweetTextlabel: UILabel!
     
     weak var delegate: TweetTableViewCellDelegate?
@@ -38,26 +42,27 @@ class TweetTableViewCell: UITableViewCell {
             timestampLabel.text = tweet.prettyTimeStamp
             nameLabel.text = tweet.user?.name
             usernameLabel.text = tweet.user?.screenName
+            if(tweet.favorited) {
+                favoriteImage.image = #imageLiteral(resourceName: "favorited")
+            } else {
+                  favoriteImage.image = #imageLiteral(resourceName: "favorite")
+            }
             
         }
         
     }
     
     
-    func tappedMe(gesture: UITapGestureRecognizer)
-    {
-        print("TAPPED IMAGE!!")
-    }
     
-    @IBAction func onFavorite(_ sender: AnyObject) {
+     func onFavorite(_ sender: AnyObject) {
         TwitterClient.sharedInstance?.favorite(tweet: tweet)
     }
-    @IBAction func onRetweet(_ sender: AnyObject) {
+     func onRetweet(_ sender: AnyObject) {
         TwitterClient.sharedInstance?.retweet(tweet: tweet)
     }
     
     
-    @IBAction func onReply(_ sender: AnyObject) {
+     func onReply(_ sender: AnyObject) {
         print("REPLYING!")
        
         
@@ -70,11 +75,7 @@ class TweetTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        var tap = UITapGestureRecognizer(target: self, action: #selector(TweetTableViewCell.tappedMe(gesture:)))
-        
-        profileImage.addGestureRecognizer(tap)
-        profileImage.isUserInteractionEnabled = true
-        
+      
         // Initialization code
     }
 

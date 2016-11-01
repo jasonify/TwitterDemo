@@ -45,13 +45,80 @@ class TweetDetailViewController: UIViewController {
             retweetCountLabel.text = "\(tweet.retweetCount)"
             favoriteCountLabel.text = "\(tweet.favoritesCount)"
             tweetTextlabel.text = tweet.text
+            
+            
+            rerenderFavorite()
+            
+            
         }
         
         
         
+        //////////////////////
+        let tap = UITapGestureRecognizer(target: self, action: #selector(TweetDetailViewController.reteweetTapped(gesture:)))
+        
+        retweetImage.addGestureRecognizer(tap)
+        retweetImage.isUserInteractionEnabled = true
+        ///
+        
+        //////////////////////
+        let tapReply = UITapGestureRecognizer(target: self, action: #selector(TweetDetailViewController.replyTapped(gesture:)))
+        
+        replyImage.addGestureRecognizer(tapReply)
+        replyImage.isUserInteractionEnabled = true
+        ///
+        
+        //////////////////////
+        let tapFavorite = UITapGestureRecognizer(target: self, action: #selector(TweetDetailViewController.favoriteTapped(gesture:)))
+        
+        
+        favoriteImage.addGestureRecognizer(tapFavorite)
+        favoriteImage.isUserInteractionEnabled = true
+        ///
+        
+        
+        
+        /////////////
+        
         // Do any additional setup after loading the view.
     }
 
+    
+    
+    func favoriteTapped(gesture: UITapGestureRecognizer)
+    {
+        TwitterClient.sharedInstance?.favorite(tweet: tweet!)
+       // dismiss(animated: true, completion: nil)
+        favoriteImage.image = #imageLiteral(resourceName: "favorited")
+       // rerenderFavorite()
+        
+        
+    }
+    func rerenderFavorite(){
+        if(tweet!.favorited) {
+            favoriteImage.image = #imageLiteral(resourceName: "favorited")
+        } else {
+            favoriteImage.image = #imageLiteral(resourceName: "favorite")
+        }
+        
+    }
+    
+    
+    func reteweetTapped(gesture: UITapGestureRecognizer)
+    {
+        TwitterClient.sharedInstance?.retweet(tweet: tweet!)
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    func replyTapped(gesture: UITapGestureRecognizer)
+    {
+        performSegue(withIdentifier: "showReplyTweet", sender: self)
+    }
+    
+    
+    
     @IBAction func onReplyPressed(_ sender: AnyObject) {
         performSegue(withIdentifier: "showReplyTweet", sender: self)
         

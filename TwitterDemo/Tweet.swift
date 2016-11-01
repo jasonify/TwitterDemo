@@ -16,6 +16,7 @@ class Tweet: NSObject {
     var favoritesCount: Int = 0
     var user: User?
     var id: String?
+    var favorited: Bool = false
     var prettyTimeStamp: String?
     
     
@@ -27,6 +28,10 @@ class Tweet: NSObject {
         favoritesCount = (dictionary["favorite_count"] as? Int) ?? 0
         print(favoritesCount)
         id = dictionary["id_str"] as? String
+        
+        favorited = (dictionary["favorited"] as? Bool) ?? false
+
+        
         
         
         
