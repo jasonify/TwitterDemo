@@ -23,8 +23,8 @@ class ComposeTweetViewController: UIViewController {
 
     @IBOutlet weak var tweetButton: UIBarButtonItem!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var tweetField: UITextField!
     
+    @IBOutlet weak var tweettextField: UITextView!
     
     @IBAction func onCancel(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
@@ -33,12 +33,13 @@ class ComposeTweetViewController: UIViewController {
     
     @IBAction func onTweet(_ sender: AnyObject) {
     
+        let text = tweettextField.text!
         if let tweet = tweet{
             print("tweet reply...")
-            TwitterClient.sharedInstance?.replyTo(tweet:  tweet, replyText: tweetField.text!)
+            TwitterClient.sharedInstance?.replyTo(tweet:  tweet, replyText: text)
         } else {
             print("fresh tweet")
-            TwitterClient.sharedInstance?.tweet(text: tweetField.text! )
+            TwitterClient.sharedInstance?.tweet(text: text )
         }
         dismiss(animated: true, completion: nil)
     }
