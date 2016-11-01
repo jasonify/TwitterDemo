@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TwitterDemo/TwitterClient.swift"
-            timestampString = "499647869.627622"
+            timestampString = "499674478.487116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "homeTimeline(success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -96,6 +96,22 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TwitterDemo/TwitterClient.swift"
+            timestampString = "499674350.778074"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "homeTimelineOlder(_:success:failure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

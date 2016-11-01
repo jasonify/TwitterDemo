@@ -78,7 +78,6 @@ class TweetsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     
     // MARK: - Navigation
@@ -87,8 +86,6 @@ class TweetsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-       
         
         if(segue.identifier == "showTweetDetails") {
 
@@ -109,22 +106,55 @@ class TweetsViewController: UIViewController {
         
         if segue.identifier == "showCompose"{
             
-            
             let navigationController = segue.destination as! UINavigationController
             let composeView = navigationController.topViewController as! ComposeTweetViewController
             composeView.user  = User.currentUser
             
         }
-        
-        
-       
-        
-        
-        
+
     }
-    
+    var isMoreDataLoading = false
 
 }
+extension TweetsViewController: UIScrollViewDelegate {
+
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            // Calculate the position of one screen length before the bottom of the results
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging) {
+                isMoreDataLoading = true
+                
+                // ... Code to load more results ...
+                
+                TwitterClient.sharedInstance?.homeTimelineOlder(tweets, success: { (tweets:[Tweet]) in
+                    
+                    self.isMoreDataLoading = false
+
+                    self.tweets = tweets
+                    self.tableView.reloadData()
+                    for tweet in tweets{
+                        
+                        print("tweets", tweet.text)
+                        self.refreshControl.endRefreshing()
+                        
+                    }
+                    }, failure: { (error:Error) in
+                        self.refreshControl.endRefreshing()
+                        self.isMoreDataLoading = false
+
+                        print(error.localizedDescription)
+                })
+            }
+        }
+    }
+
+}
+
 
 extension TweetsViewController: TweetTableViewCellDelegate {
     func replySelected(tweet: Tweet) {

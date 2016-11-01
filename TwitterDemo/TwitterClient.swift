@@ -156,6 +156,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
         
     }
+    
     func retweet(tweet: Tweet){
         let url = "/1.1/statuses/retweet/\(tweet.id!).json"
         print("url retweet", url)
@@ -167,6 +168,33 @@ class TwitterClient: BDBOAuth1SessionManager {
                 
         })
     }
+    
+    
+    func homeTimelineOlder(_ oldTweets: [Tweet], success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
+        
+        let lastTweet = oldTweets[oldTweets.count-1]
+        
+        let partialTweets = oldTweets[0..<(oldTweets.count-1)]
+        
+        let timelineURL = "1.1/statuses/home_timeline.json?max_id=\(lastTweet.id!)"
+        
+        print("TIMELINE URL", timelineURL)
+        get(timelineURL, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
+            let tweetsDictionary = response as! [NSDictionary]
+            
+            let tweets = Tweet.tweetsWithArray(dictionaries: tweetsDictionary)
+            let combinedTweets =  [] + partialTweets + tweets
+            print("count", combinedTweets.count)
+            success(combinedTweets)
+            
+            
+            }, failure: { (task:URLSessionDataTask?, error:Error) in
+                failure(error)
+        })
+        
+    }
+    
+    
     func homeTimeline( success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
         let timelineURL = "1.1/statuses/home_timeline.json"
         
@@ -183,6 +211,8 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
         
     }
+    
+    
 }
 
 
