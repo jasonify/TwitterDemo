@@ -169,9 +169,17 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    enum timelineErrors: Error {
+        case zeroTweets
+    }
+    
     
     func homeTimelineOlder(_ oldTweets: [Tweet], success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
         
+        if(oldTweets.count == 0) {
+            failure(timelineErrors.zeroTweets)
+            return
+        }
         let lastTweet = oldTweets[oldTweets.count-1]
         
         let partialTweets = oldTweets[0..<(oldTweets.count-1)]

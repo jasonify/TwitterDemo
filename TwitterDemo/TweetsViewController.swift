@@ -46,7 +46,7 @@ class TweetsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // Set up Infinite Scroll loading indicator
-        let frame = CGRectMake(0, tableView.contentSize.height, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
+        let frame = CGRectMake(0, tableView.contentSize.height/2, tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
         loadingMoreView!.isHidden = true
         tableView.addSubview(loadingMoreView!)
@@ -56,6 +56,10 @@ class TweetsViewController: UIViewController {
         tableView.contentInset = insets
         
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.refresh()
     }
 
     func refreshControlAction(refreshControl: UIRefreshControl) {
@@ -67,12 +71,8 @@ class TweetsViewController: UIViewController {
             
             self.tweets = tweets
             self.tableView.reloadData()
-            for tweet in tweets{
-                
-                print("tweets", tweet.text)
-                self.refreshControl.endRefreshing()
+            self.refreshControl.endRefreshing()
 
-            }
             }, failure: { (error:Error) in
                 self.refreshControl.endRefreshing()
 
@@ -140,7 +140,7 @@ extension TweetsViewController: UIScrollViewDelegate {
     
   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (!isMoreDataLoading) {
+        if (!isMoreDataLoading && tweets.count > 0) {
             // Calculate the position of one screen length before the bottom of the results
             let scrollViewContentHeight = tableView.contentSize.height
             let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
