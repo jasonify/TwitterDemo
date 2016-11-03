@@ -37,11 +37,24 @@ class HamburgerViewController: UIViewController {
         } else if sender.state == UIGestureRecognizerState.changed {
             leftMarginConstraint.constant = originalLeftMargin! + translation.x
         } else if sender.state == UIGestureRecognizerState.ended {
+            
+            UIView.animate(withDuration: 0.3, animations: { 
+                
+                if velocity.x > 0 {
+                    self.leftMarginConstraint.constant = self.view.frame.size.width - 50
+                } else {
+                    self.leftMarginConstraint.constant = 0
+                }
+                self.view.layoutIfNeeded()
+                
+            })
+            
+            /* // cant touch frame in auto layout
             if velocity.x > 0 {
                 leftMarginConstraint.constant = view.frame.size.width - 50
             } else {
                 leftMarginConstraint.constant = 0
-            }
+            } */
         }
     }
     
