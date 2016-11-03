@@ -136,14 +136,35 @@ class TweetsViewController: UIViewController {
             let viewTo = navigationController.topViewController as! UserProfileViewController
             viewTo.user  = User.currentUser
             */
-            let targetViewController = UIViewController() // this is that controller, that you want to be embedded in navigation controller
-
-            self.present(targetViewController, animated: true, completion: nil)
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UserProfile") as! UserProfileViewController
+            nextViewController.user = selectedUser
+            self.present(nextViewController, animated:true, completion:nil)
+            
+            
             print("hello")
             
             
         }
         
+        
+        /*
+ 
+ 
+         
+         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+         
+         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UserProfile") as! UserProfileViewController
+         nextViewController.user = selectedUser
+         self.present(nextViewController, animated:true, completion:nil)
+         
+         
+         print("hello")
+         
+         
+        */
         
 
     }

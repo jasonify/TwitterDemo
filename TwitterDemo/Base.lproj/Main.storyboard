@@ -69,7 +69,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sfY-Pe-f4U" id="FEp-qi-UpE">
-                                            <frame key="frameInset" width="320" height="153.5"/>
+                                            <frame key="frameInset" width="320" height="153"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEG-b5-0LN">
@@ -482,7 +482,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="O31-02-d5g">
             <objects>
-                <viewController id="YjJ-UH-QPh" customClass="UserProfileViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfile" id="YjJ-UH-QPh" customClass="UserProfileViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iAL-60-5a1"/>
                         <viewControllerLayoutGuide type="bottom" id="oKk-2g-r1Z"/>
