@@ -8,12 +8,13 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var heroImage: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
     var user:User?
     
@@ -24,10 +25,30 @@ class UserProfileViewController: UIViewController {
             nameLabel.text =  user.name
             usernameLabel.text = user.screenName
             profileImage.setImageWith(user.profileImageUrl!)
-            
         }
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = Bundle.main.loadNibNamed("SingleTweetTableViewCell", owner: self, options: nil)?.first  as! SingleTweetTableViewCell
+        return cell
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

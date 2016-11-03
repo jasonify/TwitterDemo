@@ -28,11 +28,8 @@ class User: NSObject {
         let profileUrlString = dictionary["profile_image_url_https"] as? String
         if let profileUrlString = profileUrlString {
             profileUrl = URL(string: profileUrlString)
-        }
-        
-        
+        }            
         screenName = dictionary["screen_name"] as? String
-
         
         let profileImageUrlString = dictionary["profile_image_url_https"] as? String
         print(profileImageUrlString)

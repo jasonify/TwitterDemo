@@ -564,6 +564,7 @@
                         <outlet property="heroImage" destination="RE8-rT-tJz" id="RvY-JY-sOj"/>
                         <outlet property="nameLabel" destination="mFg-ze-zYL" id="xwq-Zz-LnU"/>
                         <outlet property="profileImage" destination="qTo-4F-Amb" id="ORR-Qe-j9n"/>
+                        <outlet property="tableView" destination="Voj-kM-Fyk" id="9za-XG-eDS"/>
                         <outlet property="usernameLabel" destination="SFa-bT-E2x" id="9te-Sc-959"/>
                     </connections>
                 </viewController>

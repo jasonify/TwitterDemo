@@ -70,14 +70,9 @@ class TweetTableViewCell: UITableViewCell {
     
     
      func onReply(_ sender: AnyObject) {
-        print("REPLYING!")
-       
-        
+        print("REPLYING!")               
         delegate?.replySelected?(tweet: tweet!)
-        
-        
     }
-    
     
     
     override func awakeFromNib() {

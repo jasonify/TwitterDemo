@@ -45,14 +45,9 @@ class TweetDetailViewController: UIViewController {
             retweetCountLabel.text = "\(tweet.retweetCount)"
             favoriteCountLabel.text = "\(tweet.favoritesCount)"
             tweetTextlabel.text = tweet.text
-            
-            
+                        
             rerenderFavorite()
-            
-            
         }
-        
-        
         
         //////////////////////
         let tap = UITapGestureRecognizer(target: self, action: #selector(TweetDetailViewController.reteweetTapped(gesture:)))

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9611A19E1DCB082A0094FA5A /* SingleTweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9611A19C1DCB082A0094FA5A /* SingleTweetTableViewCell.swift */; };
+		9611A19F1DCB082A0094FA5A /* SingleTweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9611A19D1DCB082A0094FA5A /* SingleTweetTableViewCell.xib */; };
 		963C42EA1DC86FD3000D1902 /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C42E91DC86FD3000D1902 /* InfiniteScrollActivityView.swift */; };
 		9655F4211DC802DB00A36FB1 /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655F4201DC802DB00A36FB1 /* ComposeTweetViewController.swift */; };
 		968570F01DCAB72A00922288 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968570EF1DCAB72A00922288 /* UserProfileViewController.swift */; };
@@ -30,6 +32,8 @@
 		128C295712121B529435CEE1 /* Pods-TwitterDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterDemo/Pods-TwitterDemo.release.xcconfig"; sourceTree = "<group>"; };
 		22B6BA12EED1AF4BDECC3E78 /* Pods-TwitterDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterDemo/Pods-TwitterDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		926896DC87BA900C37853635 /* Pods_TwitterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9611A19C1DCB082A0094FA5A /* SingleTweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTweetTableViewCell.swift; sourceTree = "<group>"; };
+		9611A19D1DCB082A0094FA5A /* SingleTweetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleTweetTableViewCell.xib; sourceTree = "<group>"; };
 		963C42E91DC86FD3000D1902 /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		9655F4201DC802DB00A36FB1 /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTweetViewController.swift; sourceTree = "<group>"; };
 		968570EF1DCAB72A00922288 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			children = (
 				96B57DBE1DC73226006BE156 /* TweetTableViewCell.swift */,
 				963C42E91DC86FD3000D1902 /* InfiniteScrollActivityView.swift */,
+				9611A19C1DCB082A0094FA5A /* SingleTweetTableViewCell.swift */,
+				9611A19D1DCB082A0094FA5A /* SingleTweetTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -234,6 +240,7 @@
 				96BEBCDB1DC1B52C00823D41 /* LaunchScreen.storyboard in Resources */,
 				96BEBCD81DC1B52C00823D41 /* Assets.xcassets in Resources */,
 				96BEBCD61DC1B52C00823D41 /* Main.storyboard in Resources */,
+				9611A19F1DCB082A0094FA5A /* SingleTweetTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +306,7 @@
 				96B57DC41DC7563F006BE156 /* NSDate+Extension.swift in Sources */,
 				96BEBCD31DC1B52C00823D41 /* ViewController.swift in Sources */,
 				96B57DBD1DC6D476006BE156 /* TweetsViewController.swift in Sources */,
+				9611A19E1DCB082A0094FA5A /* SingleTweetTableViewCell.swift in Sources */,
 				969327D81DC5930500CEDC4D /* TwitterClient.swift in Sources */,
 				968570F01DCAB72A00922288 /* UserProfileViewController.swift in Sources */,
 				96BEBCD11DC1B52C00823D41 /* AppDelegate.swift in Sources */,
