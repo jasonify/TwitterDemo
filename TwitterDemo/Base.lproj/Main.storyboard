@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cew-xi-Cms">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="138.38028169014083"/>
+            <point key="canvasLocation" x="-848" y="29"/>
         </scene>
         <!--Home-->
         <scene sceneID="iuM-Tj-Www">
@@ -477,7 +477,57 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzL-W1-Igb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="933.60000000000002" y="133.5832083958021"/>
+            <point key="canvasLocation" x="156" y="3"/>
+        </scene>
+        <!--Hamburger View Controller-->
+        <scene sceneID="YMC-he-GJW">
+            <objects>
+                <viewController id="cew-xi-Cms" customClass="HamburgerViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CiY-a3-hlv"/>
+                        <viewControllerLayoutGuide type="bottom" id="xox-iN-Z0g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4l0-DM-PVR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4e5-f3-84S" userLabel="MenuView">
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0S-5A-LJ6" userLabel="ContentView">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Iw4-Hj-e7m" appends="YES" id="oEf-gX-XAy"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4e5-f3-84S" firstAttribute="leading" secondItem="4l0-DM-PVR" secondAttribute="leading" id="Ig5-zl-ihx"/>
+                            <constraint firstAttribute="trailing" secondItem="4e5-f3-84S" secondAttribute="trailing" id="QVr-dK-MBW"/>
+                            <constraint firstItem="xox-iN-Z0g" firstAttribute="top" secondItem="p0S-5A-LJ6" secondAttribute="bottom" id="WWE-XE-wag"/>
+                            <constraint firstItem="p0S-5A-LJ6" firstAttribute="leading" secondItem="4l0-DM-PVR" secondAttribute="leading" id="ZxY-Wk-Mbh"/>
+                            <constraint firstItem="p0S-5A-LJ6" firstAttribute="width" secondItem="4l0-DM-PVR" secondAttribute="width" id="cGl-we-XrX"/>
+                            <constraint firstItem="xox-iN-Z0g" firstAttribute="top" secondItem="4e5-f3-84S" secondAttribute="bottom" id="faV-Wu-OT3"/>
+                            <constraint firstItem="p0S-5A-LJ6" firstAttribute="top" secondItem="4l0-DM-PVR" secondAttribute="top" id="rZa-oi-eIT"/>
+                            <constraint firstItem="4e5-f3-84S" firstAttribute="top" secondItem="4l0-DM-PVR" secondAttribute="top" id="uwo-zc-Wle"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="p0S-5A-LJ6" id="qEu-u6-LIa"/>
+                        <outlet property="leftMarginConstraint" destination="ZxY-Wk-Mbh" id="Q0r-EB-7BQ"/>
+                        <outlet property="menuView" destination="4e5-f3-84S" id="kWn-3I-fFN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="41I-2W-VPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Iw4-Hj-e7m">
+                    <connections>
+                        <action selector="onPanGesture:" destination="cew-xi-Cms" id="feD-rj-O9I"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-368" y="991"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="O31-02-d5g">
