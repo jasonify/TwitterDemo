@@ -27,6 +27,8 @@ class TweetsViewController: UIViewController {
     var selectedTweet: Tweet?
     var selectedUser: User?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,6 +56,8 @@ class TweetsViewController: UIViewController {
         var insets = tableView.contentInset;
         insets.bottom += InfiniteScrollActivityView.defaultHeight;
         tableView.contentInset = insets
+        
+        
         
         
     }
@@ -123,6 +127,24 @@ class TweetsViewController: UIViewController {
             composeView.user  = User.currentUser
             
         }
+        
+        if segue.identifier == "showUserProfile"{
+            
+            /*
+          //  let navigationController = segue.destination as! UINavigationController
+            self.view
+            let viewTo = navigationController.topViewController as! UserProfileViewController
+            viewTo.user  = User.currentUser
+            */
+            let targetViewController = UIViewController() // this is that controller, that you want to be embedded in navigation controller
+
+            self.present(targetViewController, animated: true, completion: nil)
+            print("hello")
+            
+            
+        }
+        
+        
 
     }
     
@@ -200,6 +222,13 @@ extension TweetsViewController: TweetTableViewCellDelegate {
         performSegue(withIdentifier: "showReplyTweet", sender: self)
         
       //
+    }
+    
+    
+    func userSelected(user: User) {
+        selectedUser = user
+        performSegue(withIdentifier: "showUserProfile", sender: self)
+
     }
 }
 

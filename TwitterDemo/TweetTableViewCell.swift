@@ -12,6 +12,8 @@ import AFNetworking
 
 @objc protocol  TweetTableViewCellDelegate  {
     @objc optional func replySelected(tweet: Tweet)
+    @objc optional func userSelected(user: User)
+
 }
 
 
@@ -53,6 +55,11 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     
+    func userProfileImagePressed (gesture: UITapGestureRecognizer){
+        delegate?.userSelected?(user: tweet!.user!)
+
+    }
+    
     
      func onFavorite(_ sender: AnyObject) {
         TwitterClient.sharedInstance?.favorite(tweet: tweet)
@@ -76,6 +83,13 @@ class TweetTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
       
+        //////////////////////
+        let tap = UITapGestureRecognizer(target: self, action: #selector(TweetTableViewCell.userProfileImagePressed(gesture:)))
+        
+        profileImage.addGestureRecognizer(tap)
+        profileImage.isUserInteractionEnabled = true
+        
+        
         // Initialization code
     }
 
