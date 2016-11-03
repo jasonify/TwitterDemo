@@ -204,9 +204,10 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     
     func timeline(user: User, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
-        let url = "/1.1/statuses/user_timeline.json?screen_name=twitterapi&count=2"
+        let url = "/1.1/statuses/user_timeline.json?screen_name=\(user.screenName!)&count=20"
         
         
+        print("timeline url", url)
         get(url, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
             let tweetsDictionary = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries: tweetsDictionary)
