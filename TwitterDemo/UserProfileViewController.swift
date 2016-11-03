@@ -30,13 +30,16 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = UITableViewAutomaticDimension
+       
         
         // Do any additional setup after loading the view.
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     

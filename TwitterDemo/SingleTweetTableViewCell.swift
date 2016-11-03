@@ -12,9 +12,34 @@ class SingleTweetTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    
+    
+    
+    var tweet: Tweet! {
+        didSet {
+            print("Setting tweet")
+            
+           // tweetTextlabel.text = tweet.text
+            if tweet.user?.profileImageUrl != nil {
+                profileImage.setImageWith(tweet.user!.profileImageUrl!)
+            }
+            print("time=", tweet.prettyTimeStamp!)
+            //timestampLabel.text = tweet.prettyTimeStamp
+            nameLabel.text = tweet.user?.name
+           // usernameLabel.text = tweet.user?.screenName
+            if(tweet.favorited) {
+             //   favoriteImage.image = #imageLiteral(resourceName: "favorited")
+            } else {
+              //  favoriteImage.image = #imageLiteral(resourceName: "favorite")
+            }
+            
+        }
+        
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
