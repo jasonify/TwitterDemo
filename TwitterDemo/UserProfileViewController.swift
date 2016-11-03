@@ -18,6 +18,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     
     var user:User?
     
+    var tweets = [Tweet]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +26,13 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             nameLabel.text =  user.name
             usernameLabel.text = user.screenName
             profileImage.setImageWith(user.profileImageUrl!)
+        
+            TwitterClient.sharedInstance?.timeline(user: user, success: { (tweets: [Tweet]) in
+                self.tweets = tweets
+                self.tableView.reloadData()
+                }, failure: { (error:Error) in
+                    print(error)
+            })
         }
         
         self.tableView.delegate = self
@@ -34,12 +42,13 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.rowHeight = UITableViewAutomaticDimension
        
         
+        
         // Do any additional setup after loading the view.
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return tweets.count
     }
     
     
@@ -48,6 +57,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = Bundle.main.loadNibNamed("SingleTweetTableViewCell", owner: self, options: nil)?.first  as! SingleTweetTableViewCell
+        cell.tweet = tweets[indexPath.row]
         return cell
         
     }
