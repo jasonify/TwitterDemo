@@ -30,6 +30,14 @@ class HamburgerViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuViewControllerNew = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! HamburgerMenuViewController
+        
+        menuViewController = menuViewControllerNew
+        
+        menuViewControllerNew.hamburgerViewController = self
+        
 
         // Do any additional setup after loading the view.
     }
