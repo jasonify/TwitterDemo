@@ -13,8 +13,10 @@ class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITabl
     var viewControllers: [UIViewController] = []
     
     var hamburgerViewController: HamburgerViewController! {
+        
         didSet {
             
+            hamburgerViewController.contentViewController = viewControllers[0]
         }
     }
     override func viewDidLoad() {
@@ -32,7 +34,7 @@ class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITabl
         viewControllers.append(s1)
         viewControllers.append(s2)
         
-        
+
         
         
         // Do any additional setup after loading the view.
