@@ -10,13 +10,14 @@ import UIKit
 
 class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    var viewControllers: [UIViewController] = []
+    var viewControllers: [(name: String, view:UIViewController)] = []
+    
     
     var hamburgerViewController: HamburgerViewController! {
         
         didSet {
             
-            hamburgerViewController.contentViewController = viewControllers[0]
+            hamburgerViewController.contentViewController = viewControllers[0].view
         }
     }
     override func viewDidLoad() {
@@ -32,8 +33,8 @@ class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITabl
         let s2 = storybaord.instantiateViewController(withIdentifier: "UserProfile")
         // mentions
         
-        viewControllers.append(s1)
-        viewControllers.append(s2)
+        viewControllers.append((name: "Home", view: s1))
+        viewControllers.append((name: "Profile", view: s2))
         
 
         // Do any additional setup after loading the view.
@@ -58,7 +59,7 @@ class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITabl
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuCell
         
-        cell.nameLabel.text = "HELLO"
+        cell.nameLabel.text = viewControllers[indexPath.row].name
         
         return cell
     }
@@ -67,7 +68,7 @@ class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+        hamburgerViewController.contentViewController = viewControllers[indexPath.row].view
         
     }
     

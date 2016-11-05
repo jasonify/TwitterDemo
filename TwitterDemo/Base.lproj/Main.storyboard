@@ -482,7 +482,7 @@
         <!--Hamburger View Controller-->
         <scene sceneID="YMC-he-GJW">
             <objects>
-                <viewController id="cew-xi-Cms" customClass="HamburgerViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HamburgerViewController" id="cew-xi-Cms" customClass="HamburgerViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CiY-a3-hlv"/>
                         <viewControllerLayoutGuide type="bottom" id="xox-iN-Z0g"/>
@@ -560,7 +560,7 @@
                                             <constraints>
                                                 <constraint firstItem="Zlv-LB-QZb" firstAttribute="leading" secondItem="HTv-a6-wCe" secondAttribute="leadingMargin" constant="10" id="TIx-RX-SvV"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Zlv-LB-QZb" secondAttribute="trailing" constant="10" id="jHT-jR-jfx"/>
-                                                <constraint firstItem="Zlv-LB-QZb" firstAttribute="top" secondItem="HTv-a6-wCe" secondAttribute="topMargin" constant="6" id="vXd-eF-fhx"/>
+                                                <constraint firstItem="Zlv-LB-QZb" firstAttribute="top" secondItem="HTv-a6-wCe" secondAttribute="topMargin" constant="20" id="vXd-eF-fhx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
