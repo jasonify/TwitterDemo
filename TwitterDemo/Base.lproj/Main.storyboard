@@ -65,7 +65,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ybA-Et-lVu">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="154" id="sfY-Pe-f4U" customClass="TweetTableViewCell" customModule="TwitterDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="154" id="sfY-Pe-f4U" customClass="TweetTableViewCell" customModule="TwitterDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sfY-Pe-f4U" id="FEp-qi-UpE">
@@ -673,11 +673,12 @@
                         <outlet property="profileImage" destination="qTo-4F-Amb" id="ORR-Qe-j9n"/>
                         <outlet property="tableView" destination="Voj-kM-Fyk" id="9za-XG-eDS"/>
                         <outlet property="usernameLabel" destination="SFa-bT-E2x" id="9te-Sc-959"/>
+                        <segue destination="SNd-El-7e2" kind="presentation" identifier="showTweetDetails" id="eMT-SL-p3p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lan-TA-EQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669" y="967"/>
+            <point key="canvasLocation" x="1658" y="1020"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I0f-nJ-slg">
@@ -725,5 +726,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mbg-zM-tRB"/>
+        <segue reference="esn-uO-G5E"/>
     </inferredMetricsTieBreakers>
 </document>

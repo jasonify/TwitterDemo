@@ -72,7 +72,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = Bundle.main.loadNibNamed("SingleTweetTableViewCell", owner: self, options: nil)?.first  as! SingleTweetTableViewCell
+        let cell = Bundle.main.loadNibNamed("TweetTableViewCell", owner: self, options: nil)?.first  as! TweetTableViewCell
         cell.tweet = tweets[indexPath.row]
         return cell
         
@@ -94,5 +94,20 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "showTweetDetails") {
+            
+         /*   let navigationController = segue.destination as! UINavigationController
+            
+            let tweetDetailsVieController = navigationController.topViewController as! TweetDetailViewController
+            
+            tweetDetailsVieController.tweet  = selectedTweet
+        */
+        }
+    }
 
 }
