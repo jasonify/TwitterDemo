@@ -579,7 +579,7 @@
             </objects>
             <point key="canvasLocation" x="-1059" y="991"/>
         </scene>
-        <!--User Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="O31-02-d5g">
             <objects>
                 <viewController storyboardIdentifier="UserProfile" id="YjJ-UH-QPh" customClass="UserProfileViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -674,21 +674,11 @@
                             <constraint firstItem="dUV-Rv-Fpm" firstAttribute="leading" secondItem="O4I-tV-EYF" secondAttribute="trailing" constant="5" id="xmT-H3-ZmP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PKT-9P-Trh">
+                    <navigationItem key="navigationItem" title="Profile" id="PKT-9P-Trh">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="MBb-D0-nVX">
                             <connections>
                                 <action selector="onCancelPressed:" destination="YjJ-UH-QPh" id="Bkn-tB-BvA"/>
                             </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="FSr-0y-iA0">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="joB-4J-htK">
-                                <rect key="frame" x="233" y="7" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelButton2:" destination="YjJ-UH-QPh" eventType="touchUpInside" id="Zwo-BY-J9A"/>
-                                </connections>
-                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
