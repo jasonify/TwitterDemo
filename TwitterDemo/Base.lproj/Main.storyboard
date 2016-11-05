@@ -65,7 +65,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ybA-Et-lVu">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="154" id="sfY-Pe-f4U" customClass="TweetTableViewCell" customModule="TwitterDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="154" id="sfY-Pe-f4U">
                                         <rect key="frame" x="0.0" y="92" width="320" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sfY-Pe-f4U" id="FEp-qi-UpE">
@@ -147,14 +147,7 @@
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outlet property="favoriteImage" destination="JXg-mg-DfF" id="Rx9-U2-GSL"/>
                                             <outlet property="nameLabel" destination="YEG-b5-0LN" id="Lho-hp-DFJ"/>
-                                            <outlet property="profileImage" destination="4e8-8F-gix" id="4Wt-wh-Zff"/>
-                                            <outlet property="replyImage" destination="1X0-4X-WNe" id="3oI-zE-1Ef"/>
-                                            <outlet property="retweetImage" destination="swE-uo-dFf" id="x7b-r6-3Sp"/>
-                                            <outlet property="timestampLabel" destination="nef-wU-AVS" id="Us3-Nk-Iuj"/>
-                                            <outlet property="tweetTextlabel" destination="1GG-dI-qkH" id="n6Q-lY-2ti"/>
-                                            <outlet property="usernameLabel" destination="Jf7-hd-eO6" id="IWD-Hp-LHw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -17,7 +17,7 @@ import AFNetworking
 }
 
 
-class TweetTableViewCell: UIViewController {
+class TweetTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
