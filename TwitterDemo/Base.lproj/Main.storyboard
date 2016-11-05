@@ -179,7 +179,7 @@
                         <segue destination="SNd-El-7e2" kind="presentation" identifier="showTweetDetails" id="esn-uO-G5E"/>
                         <segue destination="Way-0X-vSH" kind="presentation" identifier="showReplyTweet" id="mbg-zM-tRB"/>
                         <segue destination="Way-0X-vSH" kind="presentation" identifier="showCompose" id="Ry6-OE-2QW"/>
-                        <segue destination="YjJ-UH-QPh" kind="presentation" identifier="showUserProfile" id="uG2-vt-iy2"/>
+                        <segue destination="ZAs-gI-FOV" kind="presentation" identifier="showUserProfile" id="uG2-vt-iy2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Eq-EH-OTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -674,6 +674,7 @@
                             <constraint firstItem="dUV-Rv-Fpm" firstAttribute="leading" secondItem="O4I-tV-EYF" secondAttribute="trailing" constant="5" id="xmT-H3-ZmP"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="PKT-9P-Trh"/>
                     <connections>
                         <outlet property="heroImage" destination="RE8-rT-tJz" id="RvY-JY-sOj"/>
                         <outlet property="nameLabel" destination="mFg-ze-zYL" id="xwq-Zz-LnU"/>
@@ -682,11 +683,12 @@
                         <outlet property="tableView" destination="Voj-kM-Fyk" id="9za-XG-eDS"/>
                         <outlet property="usernameLabel" destination="SFa-bT-E2x" id="9te-Sc-959"/>
                         <segue destination="SNd-El-7e2" kind="presentation" identifier="showTweetDetails" id="eMT-SL-p3p"/>
+                        <segue destination="ZAs-gI-FOV" kind="show" identifier="showUserProfile" id="3bx-yJ-1CB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lan-TA-EQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1658" y="1020"/>
+            <point key="canvasLocation" x="2708" y="1205"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I0f-nJ-slg">
@@ -726,6 +728,24 @@
             </objects>
             <point key="canvasLocation" x="2588" y="-680"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q7P-8I-h6S">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZAs-gI-FOV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4tD-J8-CX4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YjJ-UH-QPh" kind="relationship" relationship="rootViewController" id="n3C-EW-F9F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBh-Yl-ql3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657.5" y="1019.3661971830986"/>
+        </scene>
     </scenes>
     <resources>
         <image name=" retweet" width="16" height="10"/>
@@ -735,5 +755,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="mbg-zM-tRB"/>
         <segue reference="eMT-SL-p3p"/>
+        <segue reference="3bx-yJ-1CB"/>
     </inferredMetricsTieBreakers>
 </document>

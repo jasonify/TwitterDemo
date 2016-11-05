@@ -130,17 +130,16 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         
         if segue.identifier == "showUserProfile"{
             
-          /*
+            if ( selectedUser?.screenName! == User.currentUser?.screenName!){
+                print("SAME USER!")
+            } else {
             
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UserProfile") as! UserProfileViewController
             nextViewController.user = selectedUser
             self.present(nextViewController, animated:true, completion:nil)
-            */
-            
-            print("hello")
-            
+            }
             
         }
     }
