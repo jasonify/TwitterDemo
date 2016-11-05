@@ -68,6 +68,7 @@ class TweetDetailViewController: UIViewController {
         
         
         favoriteImage.addGestureRecognizer(tapFavorite)
+        // favoriteImage.transform.rotated(by: )
         favoriteImage.isUserInteractionEnabled = true
         ///
         

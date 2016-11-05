@@ -37,6 +37,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.logoutActivated), name: User.userDidLogoutNotification, object: nil)
         */
         
+        /////////////////////////////// HAMBURGER MENU
+        
+        let hamburgerViewController = window!.rootViewController as! HamburgerViewController
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
+        
+        hamburgerViewController.menuViewController = menuViewController
+        
+        ////////////////////////////////
         return true
     }
     func logoutActivated(){

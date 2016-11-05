@@ -529,6 +529,41 @@
             </objects>
             <point key="canvasLocation" x="-368" y="991"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="1Dv-G6-vtz">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="aMB-Td-osf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MJb-i8-Y5r"/>
+                        <viewControllerLayoutGuide type="bottom" id="rYG-1v-dFp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WTi-Vu-WEx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8O-T8-xnn">
+                                <frame key="frameInset" minX="56" minY="42" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Profile"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1r-IC-VZj">
+                                <frame key="frameInset" minX="49" minY="111" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Timeline"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PtT-E0-kFm">
+                                <frame key="frameInset" minX="53" minY="201" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Mentions"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFP-be-dIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="448" y="967"/>
+        </scene>
         <!--User Profile View Controller-->
         <scene sceneID="O31-02-d5g">
             <objects>

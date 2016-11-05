@@ -89,6 +89,7 @@
 		96AAD6671DC1B67D005F9C46 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				963FD3271DCBDA70006D523F /* HamburgerViewController.swift */,
 				96AAD66A1DC1B6BD005F9C46 /* LoginViewController.swift */,
 				96B57DBC1DC6D476006BE156 /* TweetsViewController.swift */,
 				96B57DC51DC7CAFF006BE156 /* TweetDetailViewController.swift */,
@@ -105,7 +106,6 @@
 				963C42E91DC86FD3000D1902 /* InfiniteScrollActivityView.swift */,
 				9611A19C1DCB082A0094FA5A /* SingleTweetTableViewCell.swift */,
 				9611A19D1DCB082A0094FA5A /* SingleTweetTableViewCell.xib */,
-				963FD3271DCBDA70006D523F /* HamburgerViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
