@@ -74,6 +74,8 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = Bundle.main.loadNibNamed("TweetTableViewCell", owner: self, options: nil)?.first  as! TweetTableViewCell
         cell.tweet = tweets[indexPath.row]
+        cell.delegate = self
+
         return cell
         
     }
@@ -99,15 +101,86 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
+    
+        
+        
         if(segue.identifier == "showTweetDetails") {
             
-         /*   let navigationController = segue.destination as! UINavigationController
+            let navigationController = segue.destination as! UINavigationController
             
             let tweetDetailsVieController = navigationController.topViewController as! TweetDetailViewController
             
             tweetDetailsVieController.tweet  = selectedTweet
-        */
+        }
+        if segue.identifier == "showReplyTweet"{
+            
+            
+            let navigationController = segue.destination as! UINavigationController
+            let composeView = navigationController.topViewController as! ComposeTweetViewController
+            composeView.tweet  = selectedTweet
+            
+        }
+        
+        if segue.identifier == "showCompose"{
+            
+            let navigationController = segue.destination as! UINavigationController
+            let composeView = navigationController.topViewController as! ComposeTweetViewController
+            composeView.user  = User.currentUser
+            
+        }
+        
+        if segue.identifier == "showUserProfile"{
+            
+          /*
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UserProfile") as! UserProfileViewController
+            nextViewController.user = selectedUser
+            self.present(nextViewController, animated:true, completion:nil)
+            */
+            
+            print("hello")
+            
+            
         }
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(tweets.count > indexPath.row){
+            selectedTweet = tweets[indexPath.row]
+            self.performSegue(withIdentifier: "showTweetDetails", sender: self)                    
+        }
+    }
+    
+    
 
+    var selectedTweet: Tweet?
+    var selectedUser: User?
 }
+
+
+
+extension UserProfileViewController: TweetTableViewCellDelegate {
+    func replySelected(tweet: Tweet) {
+        
+        print("ABOUT TO REPLY")
+        selectedTweet = tweet
+        
+        performSegue(withIdentifier: "showReplyTweet", sender: self)
+        
+        //
+    }
+    
+    
+    func userSelected(user: User) {
+        selectedUser = user
+        performSegue(withIdentifier: "showUserProfile", sender: self)
+        
+    }
+}
+
+
+
+
