@@ -22,6 +22,11 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        if user == nil {
+            user  = User.currentUser
+        }
+        
         if let user = user{
             nameLabel.text =  user.name
             usernameLabel.text = user.screenName
