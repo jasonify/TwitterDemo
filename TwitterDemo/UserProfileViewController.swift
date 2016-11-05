@@ -16,6 +16,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var statusCountLabel: UILabel!
     var user:User?
     
     var tweets = [Tweet]()
@@ -32,6 +33,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             usernameLabel.text = user.screenName
             profileImage.setImageWith(user.profileImageUrl!)
         
+            statusCountLabel.text = "\(user.statusCount)"
             TwitterClient.sharedInstance?.timeline(user: user, success: { (tweets: [Tweet]) in
             //TwitterClient.sharedInstance?.mentions(user: user, success: { (tweets: [Tweet]) in
                 self.tweets = tweets
@@ -113,16 +115,13 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             tweetDetailsVieController.tweet  = selectedTweet
         }
         if segue.identifier == "showReplyTweet"{
-            
-            
             let navigationController = segue.destination as! UINavigationController
             let composeView = navigationController.topViewController as! ComposeTweetViewController
             composeView.tweet  = selectedTweet
             
         }
         
-        if segue.identifier == "showCompose"{
-            
+        if segue.identifier == "showCompose"{            
             let navigationController = segue.destination as! UINavigationController
             let composeView = navigationController.topViewController as! ComposeTweetViewController
             composeView.user  = User.currentUser

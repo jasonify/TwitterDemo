@@ -18,7 +18,7 @@ class User: NSObject {
     var profileImageUrl: URL?
 
     var screenName: String?
-    
+    var statusCount: Int = 0
     var dictionary: NSDictionary?
     
     init(_ dictionary: NSDictionary) {
@@ -30,6 +30,8 @@ class User: NSObject {
             profileUrl = URL(string: profileUrlString)
         }            
         screenName = dictionary["screen_name"] as? String
+        
+        statusCount = (dictionary["statuses_count"] as? Int) ?? 0
         
         let profileImageUrlString = dictionary["profile_image_url_https"] as? String
         print(profileImageUrlString)

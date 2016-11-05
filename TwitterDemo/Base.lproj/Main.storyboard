@@ -638,6 +638,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOE-oE-wx7">
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXR-Za-2o6">
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -646,14 +656,18 @@
                             <constraint firstItem="RE8-rT-tJz" firstAttribute="leading" secondItem="R1e-Iw-nmN" secondAttribute="leading" id="2Kf-AD-0Yq"/>
                             <constraint firstItem="O4I-tV-EYF" firstAttribute="top" secondItem="SFa-bT-E2x" secondAttribute="bottom" constant="24" id="3Qw-ib-Qhb"/>
                             <constraint firstItem="SFa-bT-E2x" firstAttribute="leading" secondItem="R1e-Iw-nmN" secondAttribute="leadingMargin" id="4QZ-YN-bGj"/>
+                            <constraint firstItem="gOE-oE-wx7" firstAttribute="leading" secondItem="mXR-Za-2o6" secondAttribute="trailing" constant="5" id="BGB-R3-Mef"/>
                             <constraint firstItem="RE8-rT-tJz" firstAttribute="top" secondItem="R1e-Iw-nmN" secondAttribute="top" id="BkL-92-Rp4"/>
                             <constraint firstItem="qTo-4F-Amb" firstAttribute="leading" secondItem="R1e-Iw-nmN" secondAttribute="leadingMargin" constant="5" id="SCy-YX-yTB"/>
                             <constraint firstItem="SFa-bT-E2x" firstAttribute="top" secondItem="mFg-ze-zYL" secondAttribute="bottom" constant="2.5" id="XDK-sW-Dmv"/>
+                            <constraint firstItem="mXR-Za-2o6" firstAttribute="leading" secondItem="Sun-ME-HHT" secondAttribute="trailing" constant="15" id="ZLj-qA-9eC"/>
                             <constraint firstItem="Sun-ME-HHT" firstAttribute="baseline" secondItem="dUV-Rv-Fpm" secondAttribute="baseline" id="adN-sG-NTh"/>
                             <constraint firstItem="mFg-ze-zYL" firstAttribute="leading" secondItem="R1e-Iw-nmN" secondAttribute="leading" constant="12" id="ei8-jV-aGe"/>
+                            <constraint firstItem="mXR-Za-2o6" firstAttribute="baseline" secondItem="O4I-tV-EYF" secondAttribute="baseline" id="evc-rW-QDh"/>
                             <constraint firstItem="O4I-tV-EYF" firstAttribute="baseline" secondItem="dUV-Rv-Fpm" secondAttribute="baseline" id="g2D-JF-zyK"/>
                             <constraint firstItem="Sun-ME-HHT" firstAttribute="leading" secondItem="bgX-ul-flb" secondAttribute="trailing" constant="5" id="kmN-6P-bP4"/>
                             <constraint firstItem="O4I-tV-EYF" firstAttribute="leading" secondItem="R1e-Iw-nmN" secondAttribute="leadingMargin" id="pST-GK-zSi"/>
+                            <constraint firstItem="gOE-oE-wx7" firstAttribute="baseline" secondItem="O4I-tV-EYF" secondAttribute="baseline" id="qJj-yL-taJ"/>
                             <constraint firstItem="bgX-ul-flb" firstAttribute="baseline" secondItem="dUV-Rv-Fpm" secondAttribute="baseline" id="qqC-U5-GrS"/>
                             <constraint firstItem="mFg-ze-zYL" firstAttribute="top" secondItem="qTo-4F-Amb" secondAttribute="bottom" constant="8" id="uT9-e9-sc9"/>
                             <constraint firstItem="qTo-4F-Amb" firstAttribute="top" secondItem="iAL-60-5a1" secondAttribute="bottom" constant="42" id="uq1-si-rWB"/>
@@ -664,6 +678,7 @@
                         <outlet property="heroImage" destination="RE8-rT-tJz" id="RvY-JY-sOj"/>
                         <outlet property="nameLabel" destination="mFg-ze-zYL" id="xwq-Zz-LnU"/>
                         <outlet property="profileImage" destination="qTo-4F-Amb" id="ORR-Qe-j9n"/>
+                        <outlet property="statusCountLabel" destination="mXR-Za-2o6" id="70Z-Iw-lKI"/>
                         <outlet property="tableView" destination="Voj-kM-Fyk" id="9za-XG-eDS"/>
                         <outlet property="usernameLabel" destination="SFa-bT-E2x" id="9te-Sc-959"/>
                         <segue destination="SNd-El-7e2" kind="presentation" identifier="showTweetDetails" id="eMT-SL-p3p"/>
