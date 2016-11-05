@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        /* // TODO UNCOMMENT HIS ---------------------------
+        // TODO UNCOMMENT HIS ---------------------------
         if User.currentUser != nil {
             print("There is a currente user")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -35,8 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.logoutActivated), name: User.userDidLogoutNotification, object: nil)
-        */
-        
+ 
         /////////////////////////////// HAMBURGER MENU
         
        // let hamburgerViewController = window!.rootViewController as! HamburgerViewController
