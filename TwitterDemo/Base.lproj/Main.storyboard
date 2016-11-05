@@ -529,10 +529,10 @@
             </objects>
             <point key="canvasLocation" x="-368" y="991"/>
         </scene>
-        <!--View Controller-->
+        <!--Hamburger Menu View Controller-->
         <scene sceneID="1Dv-G6-vtz">
             <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="aMB-Td-osf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="aMB-Td-osf" customClass="HamburgerMenuViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MJb-i8-Y5r"/>
                         <viewControllerLayoutGuide type="bottom" id="rYG-1v-dFp"/>
@@ -541,28 +541,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8O-T8-xnn">
-                                <frame key="frameInset" minX="56" minY="42" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Profile"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1r-IC-VZj">
-                                <frame key="frameInset" minX="49" minY="111" width="58" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Timeline"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PtT-E0-kFm">
-                                <frame key="frameInset" minX="53" minY="201" width="64" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Mentions"/>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQJ-xr-IQ1">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="91" id="qfD-LF-UAG" customClass="MenuCell" customModule="TwitterDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qfD-LF-UAG" id="HTv-a6-wCe">
+                                            <frame key="frameInset" width="320" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlv-LB-QZb">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zlv-LB-QZb" firstAttribute="leading" secondItem="HTv-a6-wCe" secondAttribute="leadingMargin" constant="10" id="TIx-RX-SvV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Zlv-LB-QZb" secondAttribute="trailing" constant="10" id="jHT-jR-jfx"/>
+                                                <constraint firstItem="Zlv-LB-QZb" firstAttribute="top" secondItem="HTv-a6-wCe" secondAttribute="topMargin" constant="6" id="vXd-eF-fhx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="Zlv-LB-QZb" id="8U7-QC-0RT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EQJ-xr-IQ1" secondAttribute="trailing" id="HAj-CD-8rN"/>
+                            <constraint firstItem="EQJ-xr-IQ1" firstAttribute="top" secondItem="WTi-Vu-WEx" secondAttribute="top" id="PbJ-ro-oRg"/>
+                            <constraint firstItem="rYG-1v-dFp" firstAttribute="top" secondItem="EQJ-xr-IQ1" secondAttribute="bottom" id="TlE-Pm-ns0"/>
+                            <constraint firstItem="EQJ-xr-IQ1" firstAttribute="leading" secondItem="WTi-Vu-WEx" secondAttribute="leading" id="gK2-hj-oDH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="EQJ-xr-IQ1" id="a8U-Ej-pi2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFP-be-dIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448" y="967"/>
+            <point key="canvasLocation" x="363.75" y="990.84507042253517"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="O31-02-d5g">

@@ -42,9 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let hamburgerViewController = window!.rootViewController as! HamburgerViewController
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController")
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! HamburgerMenuViewController
         
         hamburgerViewController.menuViewController = menuViewController
+        
+        menuViewController.hamburgerViewController = hamburgerViewController
         
         ////////////////////////////////
         return true
