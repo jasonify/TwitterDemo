@@ -145,6 +145,9 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
+    @IBAction func cancelButton2(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(tweets.count > indexPath.row){
             selectedTweet = tweets[indexPath.row]
@@ -153,6 +156,9 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
+    @IBAction func onCancelPressed(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
 
     var selectedTweet: Tweet?
     var selectedUser: User?

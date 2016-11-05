@@ -137,14 +137,21 @@ class TweetsViewController: UIViewController {
             viewTo.user  = User.currentUser
             */
             
+            /*
+            
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UserProfile") as! UserProfileViewController
             nextViewController.user = selectedUser
             self.present(nextViewController, animated:true, completion:nil)
+            */
             
             
-            print("hello")
+            let navigationController = segue.destination as! UINavigationController
+            let composeView = navigationController.topViewController as! UserProfileViewController
+            composeView.user  = selectedUser
+            
+            
             
             
         }
