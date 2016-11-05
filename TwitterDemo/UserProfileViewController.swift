@@ -33,10 +33,21 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             profileImage.setImageWith(user.profileImageUrl!)
         
             TwitterClient.sharedInstance?.timeline(user: user, success: { (tweets: [Tweet]) in
+            //TwitterClient.sharedInstance?.mentions(user: user, success: { (tweets: [Tweet]) in
                 self.tweets = tweets
                 self.tableView.reloadData()
                 }, failure: { (error:Error) in
                     print(error)
+            })
+            
+            TwitterClient.sharedInstance!.heroImage(user, success: { (imageUrl: String) in
+                
+                let url = URL(string: imageUrl)
+                if let url = url {
+                    self.heroImage.setImageWith(url)
+                }
+                }, failure: { (error:Error) in
+                    
             })
         }
         

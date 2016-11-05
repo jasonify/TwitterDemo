@@ -32,7 +32,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             //  UIApplication.shared.openURL(url as! URL)
             
             }, failure: { (error: Error?) in
-               // print("error: ", error?.localizedDescription )
                 self.loginFailure?(error!)
         })
         
@@ -47,10 +46,6 @@ class TwitterClient: BDBOAuth1SessionManager {
         twitterClient?.deauthorize() // required or bugs..
         twitterClient?.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken,  success: { (requestToken: BDBOAuth1Credential?) in
             
-            
-            //twitterClient?.homeTimeline()
-            //  twitterClient?.tweet()
-            
             self.currentAccount(sucess: { (user: User) in
                 User.currentUser = user
                 self.loginSuccess?()
@@ -62,12 +57,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             })
             
             
-            
-            
-            //  UIApplication.shared.openURL(url as! URL)
-            
             }, failure: { (error: Error?) in
-               // print("error: ", error?.localizedDescription )
                 self.loginFailure?(error!)
         })
         
@@ -82,9 +72,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func currentAccount(sucess: @escaping (User) -> (), failure: @escaping (Error) -> ()  ){
         
-        
         let pathURL = "1.1/account/verify_credentials.json"
-        
         get(pathURL, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
             //print("account", response)
             
@@ -159,7 +147,6 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func retweet(tweet: Tweet){
         let url = "/1.1/statuses/retweet/\(tweet.id!).json"
-        print("url retweet", url)
         post(url, parameters: nil, progress: nil,
              success: { (task:URLSessionDataTask, response:Any?) in
                 print("retweeteded !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
@@ -174,19 +161,32 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     
+    func heroImage(_ user:User, success: @escaping (String) -> (), failure: @escaping (Error) ->() ){
+        
+        let url = "/1.1/users/profile_banner.json?screen_name=\(user.screenName!)"
+        
+        get(url, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
+            
+            let images = response as! NSDictionary
+            let imageUrl = images.value(forKeyPath: "sizes.mobile_retina.url") as! String
+            success(imageUrl)
+            
+            }, failure: { (task:URLSessionDataTask?, error:Error) in
+        })
+        
+    }
+    
     func homeTimelineOlder(_ oldTweets: [Tweet], success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
         
         if(oldTweets.count == 0) {
             failure(timelineErrors.zeroTweets)
             return
         }
+        
         let lastTweet = oldTweets[oldTweets.count-1]
-        
         let partialTweets = oldTweets[0..<(oldTweets.count-1)]
-        
         let timelineURL = "1.1/statuses/home_timeline.json?max_id=\(lastTweet.id!)"
         
-        print("TIMELINE URL", timelineURL)
         get(timelineURL, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
             let tweetsDictionary = response as! [NSDictionary]
             
@@ -206,8 +206,6 @@ class TwitterClient: BDBOAuth1SessionManager {
     func timeline(user: User, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
         let url = "/1.1/statuses/user_timeline.json?screen_name=\(user.screenName!)&count=20"
         
-        
-        print("timeline url", url)
         get(url, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
             let tweetsDictionary = response as! [NSDictionary]
             let tweets = Tweet.tweetsWithArray(dictionaries: tweetsDictionary)
@@ -219,6 +217,22 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
         
     }
+    
+    
+    func mentions(user: User, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
+        let url = "/1.1/statuses/mentions_timeline.json"
+        
+        get(url, parameters: nil, progress: nil, success: { (task:URLSessionDataTask, response:Any?) in
+            let tweetsDictionary = response as! [NSDictionary]
+            let tweets = Tweet.tweetsWithArray(dictionaries: tweetsDictionary)
+                success(tweets)
+            }, failure: { (task:URLSessionDataTask?, error:Error) in
+                failure(error)
+        })
+        
+    }
+    
+    
     
     func homeTimeline( success: @escaping ([Tweet]) -> (), failure: @escaping (Error) ->() ){
         let timelineURL = "1.1/statuses/home_timeline.json"

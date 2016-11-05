@@ -86,6 +86,8 @@ class TweetTableViewCell: UITableViewCell {
         
         
         // Initialization code
+        profileImage.layer.cornerRadius = 8
+        profileImage.layer.masksToBounds = true
     }
 
     

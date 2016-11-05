@@ -27,19 +27,30 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmw-Uz-uLO">
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="65Y-9f-dSz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="4sj-kb-W5W"/>
                     <constraint firstAttribute="trailing" secondItem="6ZS-Ik-vYE" secondAttribute="trailing" constant="10" id="H4D-ga-s5p"/>
                     <constraint firstAttribute="bottom" secondItem="65Y-9f-dSz" secondAttribute="bottom" constant="38" id="K4Y-4b-lE7"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zmw-Uz-uLO" secondAttribute="bottom" constant="30" id="KFg-NX-lxQ"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zmw-Uz-uLO" secondAttribute="trailing" constant="10" id="U7Z-Ka-F24"/>
                     <constraint firstItem="65Y-9f-dSz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="13" id="a1h-FA-CWQ"/>
                     <constraint firstItem="6ZS-Ik-vYE" firstAttribute="leading" secondItem="65Y-9f-dSz" secondAttribute="trailing" constant="10" id="crU-Av-ytU"/>
+                    <constraint firstItem="zmw-Uz-uLO" firstAttribute="leading" secondItem="65Y-9f-dSz" secondAttribute="trailing" constant="15" id="iC1-fz-9k4"/>
                     <constraint firstItem="6ZS-Ik-vYE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="vfP-Qd-4xd"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="65Y-9f-dSz" secondAttribute="bottom" constant="30" id="yHp-3n-w6s"/>
+                    <constraint firstItem="zmw-Uz-uLO" firstAttribute="top" secondItem="6ZS-Ik-vYE" secondAttribute="bottom" constant="10" id="yqy-AG-adp"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="6ZS-Ik-vYE" id="DWv-OE-etg"/>
                 <outlet property="profileImage" destination="65Y-9f-dSz" id="yPa-1f-yyl"/>
+                <outlet property="tweetLabel" destination="zmw-Uz-uLO" id="8Fo-xm-hee"/>
             </connections>
             <point key="canvasLocation" x="60" y="102"/>
         </tableViewCell>
