@@ -31,10 +31,14 @@ class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITabl
         
         let s1 = storybaord.instantiateViewController(withIdentifier: "TweetsNavigationController")
         let s2 = storybaord.instantiateViewController(withIdentifier: "UserProfile")
+        
+          let s3 = storybaord.instantiateViewController(withIdentifier: "MentionsUIViewController")
         // mentions
         
         viewControllers.append((name: "Home", view: s1))
         viewControllers.append((name: "Profile", view: s2))
+        viewControllers.append((name: "Mentions", view: s3))
+
         
 
         // Do any additional setup after loading the view.

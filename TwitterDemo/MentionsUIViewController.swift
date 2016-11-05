@@ -1,64 +1,46 @@
 //
-//  UserProfileViewController.swift
+//  MentionsUIViewController.swift
 //  TwitterDemo
 //
-//  Created by jason on 11/2/16.
+//  Created by jason on 11/5/16.
 //  Copyright © 2016 jasonify. All rights reserved.
 //
 
 import UIKit
 
-class UserProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MentionsUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var heroImage: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var statusCountLabel: UILabel!
     var user:User?
     
+    
+    @IBOutlet weak var tableView: UITableView!
     var tweets = [Tweet]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         if user == nil {
             user  = User.currentUser
         }
         
-        if let user = user{
-            nameLabel.text =  user.name
-            usernameLabel.text = user.screenName
-            profileImage.setImageWith(user.profileImageUrl!)
+       
         
-            statusCountLabel.text = "\(user.statusCount)"
-            TwitterClient.sharedInstance?.timeline(user: user, success: { (tweets: [Tweet]) in
+        TwitterClient.sharedInstance?.mentions( user: user!, success: { (tweets: [Tweet]) in
             //TwitterClient.sharedInstance?.mentions(user: user, success: { (tweets: [Tweet]) in
-                self.tweets = tweets
-                self.tableView.reloadData()
-                }, failure: { (error:Error) in
-                    print(error)
-            })
-            
-            TwitterClient.sharedInstance!.heroImage(user, success: { (imageUrl: String) in
-                
-                let url = URL(string: imageUrl)
-                if let url = url {
-                    self.heroImage.setImageWith(url)
-                }
-                }, failure: { (error:Error) in
-                    
-            })
-        }
+            self.tweets = tweets
+            self.tableView.reloadData()
+            }, failure: { (error:Error) in
+                print(error)
+        })
+        
+        
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
-       
+        
         
         
         // Do any additional setup after loading the view.
@@ -77,33 +59,33 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = Bundle.main.loadNibNamed("TweetTableViewCell", owner: self, options: nil)?.first  as! TweetTableViewCell
         cell.tweet = tweets[indexPath.row]
         cell.delegate = self
-
+        
         return cell
         
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-    
+        
         
         
         if(segue.identifier == "showTweetDetails") {
@@ -121,7 +103,7 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
-        if segue.identifier == "showCompose"{            
+        if segue.identifier == "showCompose"{
             let navigationController = segue.destination as! UINavigationController
             let composeView = navigationController.topViewController as! ComposeTweetViewController
             composeView.user  = User.currentUser
@@ -133,21 +115,21 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
             if ( selectedUser?.screenName! == User.currentUser?.screenName!){
                 print("SAME USER!")
             } else {
-            
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UserProfile") as! UserProfileViewController
-            nextViewController.user = selectedUser
-            self.present(nextViewController, animated:true, completion:nil)
+                
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UserProfile") as! UserProfileViewController
+                nextViewController.user = selectedUser
+                self.present(nextViewController, animated:true, completion:nil)
             }
             
         }
     }
-   
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(tweets.count > indexPath.row){
             selectedTweet = tweets[indexPath.row]
-            self.performSegue(withIdentifier: "showTweetDetails", sender: self)                    
+            self.performSegue(withIdentifier: "showTweetDetails", sender: self)
         }
     }
     
@@ -155,14 +137,14 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func onCancelPressed(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
-
+    
     var selectedTweet: Tweet?
     var selectedUser: User?
 }
 
 
 
-extension UserProfileViewController: TweetTableViewCellDelegate {
+extension MentionsUIViewController: TweetTableViewCellDelegate {
     func replySelected(tweet: Tweet) {
         
         print("ABOUT TO REPLY")
@@ -180,7 +162,3 @@ extension UserProfileViewController: TweetTableViewCellDelegate {
         
     }
 }
-
-
-
-

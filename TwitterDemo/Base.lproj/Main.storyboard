@@ -579,6 +579,45 @@
             </objects>
             <point key="canvasLocation" x="-1059" y="991"/>
         </scene>
+        <!--MentionsUI View Controller-->
+        <scene sceneID="WmC-Nc-0eX">
+            <objects>
+                <viewController storyboardIdentifier="MentionsUIViewController" id="rsx-QZ-soE" customClass="MentionsUIViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EKN-TK-uRx"/>
+                        <viewControllerLayoutGuide type="bottom" id="YRF-Hn-8mj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zhW-Ff-17I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tji-A4-jE7">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mentions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV8-Ue-72s">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YRF-Hn-8mj" firstAttribute="top" secondItem="Tji-A4-jE7" secondAttribute="bottom" id="8bJ-LM-pI3"/>
+                            <constraint firstItem="Tji-A4-jE7" firstAttribute="top" secondItem="gV8-Ue-72s" secondAttribute="bottom" constant="15" id="ACP-1K-kXH"/>
+                            <constraint firstItem="Tji-A4-jE7" firstAttribute="leading" secondItem="zhW-Ff-17I" secondAttribute="leading" id="WJR-YO-M93"/>
+                            <constraint firstAttribute="trailing" secondItem="Tji-A4-jE7" secondAttribute="trailing" id="fwf-9m-z6Q"/>
+                            <constraint firstItem="gV8-Ue-72s" firstAttribute="centerX" secondItem="zhW-Ff-17I" secondAttribute="centerX" id="rvk-6M-Qqj"/>
+                            <constraint firstItem="gV8-Ue-72s" firstAttribute="top" secondItem="zhW-Ff-17I" secondAttribute="top" constant="12" id="x4b-ga-9yi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Tji-A4-jE7" id="V0J-xW-Gy0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zNS-gI-yHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1582.5" y="2036.6197183098591"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="O31-02-d5g">
             <objects>
