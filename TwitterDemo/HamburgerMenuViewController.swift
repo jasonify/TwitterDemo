@@ -13,6 +13,12 @@ class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITabl
     var viewControllers: [(name: String, view:UIViewController)] = []
     
     
+    
+    var user:User?
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    
     var hamburgerViewController: HamburgerViewController! {
         
         didSet {
@@ -40,10 +46,42 @@ class HamburgerMenuViewController: UIViewController, UITableViewDelegate, UITabl
         viewControllers.append((name: "Mentions", view: s3))
 
         
+        
+        
+        
+        profileImage.layer.cornerRadius = 8
+        profileImage.layer.masksToBounds = true
+        
+        
+        
+        
+        if user == nil {
+            user  = User.currentUser
+        }
+        
+        if let user = user{
+            nameLabel.text =  user.name
+            usernameLabel.text = user.screenName
+            profileImage.setImageWith(user.profileImageUrl!)
+            
+         
+            
+            
+            profileImage.layer.cornerRadius = 8
+            profileImage.layer.masksToBounds = true
+            
+        }
+        
+        
 
         // Do any additional setup after loading the view.
     }
 
+    
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -534,7 +534,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQJ-xr-IQ1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EQJ-xr-IQ1">
+                                <frame key="frameInset" minY="140" width="320" height="428"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="91" id="qfD-LF-UAG" customClass="MenuCell" customModule="TwitterDemo" customModuleProvider="target">
@@ -562,22 +564,43 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fsa-Zd-uCV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Q7y-Wd-2yO"/>
+                                    <constraint firstAttribute="width" constant="80" id="jPB-lu-63F"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jason Bautista" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1o-Qt-8QC">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@jasonify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8XW-t6-y0T">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EQJ-xr-IQ1" secondAttribute="trailing" id="HAj-CD-8rN"/>
-                            <constraint firstItem="EQJ-xr-IQ1" firstAttribute="top" secondItem="WTi-Vu-WEx" secondAttribute="top" id="PbJ-ro-oRg"/>
-                            <constraint firstItem="rYG-1v-dFp" firstAttribute="top" secondItem="EQJ-xr-IQ1" secondAttribute="bottom" id="TlE-Pm-ns0"/>
-                            <constraint firstItem="EQJ-xr-IQ1" firstAttribute="leading" secondItem="WTi-Vu-WEx" secondAttribute="leading" id="gK2-hj-oDH"/>
+                            <constraint firstItem="fsa-Zd-uCV" firstAttribute="leading" secondItem="WTi-Vu-WEx" secondAttribute="leading" constant="15" id="0hd-rN-8uR"/>
+                            <constraint firstItem="8XW-t6-y0T" firstAttribute="leading" secondItem="fsa-Zd-uCV" secondAttribute="trailing" constant="18" id="ATK-6Q-uJa"/>
+                            <constraint firstItem="8XW-t6-y0T" firstAttribute="top" secondItem="m1o-Qt-8QC" secondAttribute="bottom" constant="5" id="F25-Lr-ZDX"/>
+                            <constraint firstItem="fsa-Zd-uCV" firstAttribute="top" secondItem="MJb-i8-Y5r" secondAttribute="bottom" constant="15" id="Pq1-GC-gAi"/>
+                            <constraint firstItem="m1o-Qt-8QC" firstAttribute="top" secondItem="MJb-i8-Y5r" secondAttribute="bottom" constant="22" id="V5b-Fr-gt0"/>
+                            <constraint firstItem="m1o-Qt-8QC" firstAttribute="leading" secondItem="fsa-Zd-uCV" secondAttribute="trailing" constant="18" id="n6j-vw-I0v"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="m1o-Qt-8QC" id="dyn-YD-seT"/>
+                        <outlet property="profileImage" destination="fsa-Zd-uCV" id="gVU-WC-AVS"/>
                         <outlet property="tableView" destination="EQJ-xr-IQ1" id="a8U-Ej-pi2"/>
+                        <outlet property="usernameLabel" destination="8XW-t6-y0T" id="ION-vM-jY5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KFP-be-dIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1059" y="991"/>
+            <point key="canvasLocation" x="-1059.375" y="990.84507042253517"/>
         </scene>
         <!--MentionsUI View Controller-->
         <scene sceneID="WmC-Nc-0eX">

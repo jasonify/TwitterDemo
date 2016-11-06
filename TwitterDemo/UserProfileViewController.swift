@@ -51,6 +51,11 @@ class UserProfileViewController: UIViewController, UITableViewDelegate, UITableV
                 }, failure: { (error:Error) in
                     
             })
+            
+            
+            profileImage.layer.cornerRadius = 8
+            profileImage.layer.masksToBounds = true
+            
         }
         
         self.tableView.delegate = self
