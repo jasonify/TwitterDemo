@@ -630,7 +630,7 @@
                             <constraint firstItem="Tji-A4-jE7" firstAttribute="leading" secondItem="zhW-Ff-17I" secondAttribute="leading" id="WJR-YO-M93"/>
                             <constraint firstAttribute="trailing" secondItem="Tji-A4-jE7" secondAttribute="trailing" id="fwf-9m-z6Q"/>
                             <constraint firstItem="gV8-Ue-72s" firstAttribute="centerX" secondItem="zhW-Ff-17I" secondAttribute="centerX" id="rvk-6M-Qqj"/>
-                            <constraint firstItem="gV8-Ue-72s" firstAttribute="top" secondItem="zhW-Ff-17I" secondAttribute="top" constant="12" id="x4b-ga-9yi"/>
+                            <constraint firstItem="gV8-Ue-72s" firstAttribute="top" secondItem="zhW-Ff-17I" secondAttribute="top" constant="30" id="x4b-ga-9yi"/>
                         </constraints>
                     </view>
                     <connections>
